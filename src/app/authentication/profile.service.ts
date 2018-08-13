@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {auth} from '../app.module';
 import {ProfileDTO} from '../models/Profile';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProfileService {
@@ -11,8 +12,6 @@ export class ProfileService {
   }
 
   getUserDetails(): Observable<ProfileDTO> {
-
-    return;
     return this.http.get(auth,
       {headers: new HttpHeaders().set('x-access-token', JSON.parse(localStorage.getItem('currentUser')).token)})
       .map((response: IUserDetailsResponse) => {

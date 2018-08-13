@@ -7,8 +7,6 @@ import {SettingComponent} from '../page/setting/setting/setting.component';
 import {DashboardComponent} from '../page/dashboard/dashboard.component';
 
 const routes: Routes = [
-  // main route, it will bring the user directly to the home
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // Login paths
   {path: 'login', component: LoginComponent},
   // Dashboard route
@@ -16,7 +14,9 @@ const routes: Routes = [
   // List Route
   {path: 'list', component: ListComponent},
   // Option Route
-  {path: 'settings', component: SettingComponent},
+  {path: 'setting', component: SettingComponent},
+  // main route, it will bring the user directly to the home
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // ERROR ROUTES
   {path: '**', redirectTo: '/404', pathMatch: 'full'},
   {path: '404', component: PageNotFoundComponent}
