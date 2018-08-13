@@ -1,22 +1,22 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from '../authentication/login/login.component';
-import {ListComponent} from '../dashboard/list/list/list.component';
-import {PageNotFoundComponent} from '../dashboard/common/page-not-found/page-not-found.component';
-import {GuardComponent} from '../authentication/guard/guard.component';
-import {SettingComponent} from '../dashboard/setting/setting/setting.component';
-import {DashboardComponent} from '../dashboard/dashboard/dashboard.component';
+import {ListComponent} from '../page/list/list/list.component';
+import {PageNotFoundComponent} from '../page/common/page-not-found/page-not-found.component';
+import {SettingComponent} from '../page/setting/setting/setting.component';
+import {DashboardComponent} from '../page/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path: '', canActivate: [GuardComponent], redirectTo: '/dashboard', pathMatch: 'full'},
+  // main route, it will bring the user directly to the home
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   // Login paths
   {path: 'login', component: LoginComponent},
   // Dashboard route
-  {path: 'dashboard', canActivate: [GuardComponent], component: DashboardComponent},
+  {path: 'home', component: DashboardComponent},
   // List Route
-  {path: 'list', canActivate: [GuardComponent], component: ListComponent},
+  {path: 'list', component: ListComponent},
   // Option Route
-  {path: 'settings', canActivate: [GuardComponent], component: SettingComponent},
+  {path: 'settings', component: SettingComponent},
   // ERROR ROUTES
   {path: '**', redirectTo: '/404', pathMatch: 'full'},
   {path: '404', component: PageNotFoundComponent}

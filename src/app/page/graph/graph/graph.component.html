@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">This is the graph number1</h4>
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">This is the graph number2</h4>
+        <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <nav id="sidebar">
+    <app-sidebar></app-sidebar>
+  </nav>
+
+  <div id="content">
+    <div class="container-fluid">
+      <div class="jumbotron">
+        <h1>Dashboard</h1>
+      </div>
+      <!-- summary cards -->
+      <div class="row">
+        <div class="col-md" *ngFor="let card of summaryCardItems">
+          <app-summary-card [item]="card"></app-summary-card>
+        </div>
+      </div>
+      <!-- graphs -->
+      <app-graph></app-graph>
+    </div>
+  </div>
+</div>
+
