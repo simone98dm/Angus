@@ -19,7 +19,6 @@ import {ChartsModule} from 'ng2-charts';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
 import {SocketIoConfig, SocketIoModule} from 'ng-socket-io';
-import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {SummaryCardComponent} from './page/summary-card/summary-card.component';
 import {CardComponent} from './page/card/card.component';
 import {ArchiveService} from './services/archive.service';
@@ -28,7 +27,8 @@ import {ProfileService} from './authentication/profile.service';
 import {RetriveChartService} from './services/retrive-chart.service';
 
 const config: SocketIoConfig = {url: 'http://192.168.1.160:8081/try', options: {}};
-export const auth = 'http://192.168.1.160:300/api/user';
+// export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
+export const authenticationApiUrl = 'http://localhost:3000/api/user';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ export const auth = 'http://192.168.1.160:300/api/user';
     GuardComponent,
     DashboardComponent,
     SummaryCardComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +53,6 @@ export const auth = 'http://192.168.1.160:300/api/user';
     HttpClientModule,
     AppRoutingService,
     ChartsModule,
-    AngularFontAwesomeModule,
     FormsModule
   ],
   providers: [
@@ -65,4 +64,5 @@ export const auth = 'http://192.168.1.160:300/api/user';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

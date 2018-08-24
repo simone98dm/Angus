@@ -5,16 +5,17 @@ import {ListComponent} from '../page/list/list/list.component';
 import {PageNotFoundComponent} from '../page/shared/page-not-found/page-not-found.component';
 import {SettingComponent} from '../page/setting/setting/setting.component';
 import {DashboardComponent} from '../page/dashboard/dashboard.component';
+import {GuardComponent} from '../authentication/guard/guard.component';
 
 const routes: Routes = [
   // Login paths
   {path: 'login', component: LoginComponent},
   // Dashboard route
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', canActivate: [GuardComponent], component: DashboardComponent},
   // List Route
-  {path: 'list', component: ListComponent},
+  {path: 'list', canActivate: [GuardComponent], component: ListComponent},
   // Option Route
-  {path: 'setting', component: SettingComponent},
+  {path: 'setting', canActivate: [GuardComponent], component: SettingComponent},
   // main route, it will bring the user directly to the home
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // ERROR ROUTES

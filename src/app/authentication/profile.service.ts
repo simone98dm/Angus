@@ -1,19 +1,22 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {auth} from '../app.module';
+import {authenticationApiUrl} from '../app.module';
 import {ProfileDTO} from '../models/Profile';
 import 'rxjs/add/operator/map';
+import {AuthenticationService} from './authentication.service';
 
 @Injectable()
 export class ProfileService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private auth: AuthenticationService) {
   }
 
   getUserDetails(): Observable<ProfileDTO> {
-    return this.http.get(auth,
-      {headers: new HttpHeaders().set('x-access-token', JSON.parse(localStorage.getItem('currentUser')).token)})
+    return this.http.get(authenticationApiUrl,
+      {
+        headers: new HttpHeaders().set('x-access-token', this.auth.getToken())
+      })
       .map((response: IUserDetailsResponse) => {
         if (response.auth !== false) {
           return new ProfileDTO(
@@ -28,7 +31,6 @@ export class ProfileService {
           return null;
         }
       });
-
   }
 }
 

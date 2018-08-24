@@ -31,8 +31,10 @@ app.post("/api/user", (req, res) => {
   });
   connection.connect();
   connection.query(
-    `SELECT accounts.id, accounts.email FROM shadow JOIN accounts ON shadow.id=accounts.id WHERE email = ? AND passwd = PASSWORD( ? );`,
-    [req.body.username, req.body.password],
+    `SELECT accounts.id, accounts.email 
+    FROM shadow JOIN accounts ON shadow.id=accounts.id 
+    WHERE email = ? AND passwd = PASSWORD( ? );`,
+    [req.body.email, req.body.password],
     (error, result, fields) => {
       connection.end();
       // if
@@ -88,7 +90,8 @@ app.get("/api/user", verifyToken, (req, res) => {
   connection.connect();
   connection.query(
     `SELECT accounts.id, accounts.username, accounts.name, accounts.surname, accounts.email, accounts.grade, accounts.profileImg   
-        FROM accounts WHERE accounts.email = ? AND accounts.id = ?;`,
+    FROM accounts 
+    WHERE accounts.email = ? AND accounts.id = ?;`,
     [req.userEmail, req.userId],
     (error, result, fields) => {
       connection.end();

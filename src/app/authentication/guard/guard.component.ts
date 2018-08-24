@@ -1,16 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {CanActivate, Router} from '@angular/router';
+import {AuthenticationService} from '../authentication.service';
 
 @Component({
   selector: 'app-guard',
   templateUrl: './guard.component.html',
   styleUrls: ['./guard.component.css']
 })
-export class GuardComponent implements OnInit {
+export class GuardComponent implements CanActivate {
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private auth: AuthenticationService) {
   }
 
-  ngOnInit() {
-  }
+  canActivate() {
+    if (this.auth.getToken() && this.auth.isAuthenticated()) {
+      return true;
+    }
 
+    this.router.navigate(['login']);
+    return false;
+  }
 }
