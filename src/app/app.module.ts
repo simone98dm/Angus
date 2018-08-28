@@ -25,6 +25,7 @@ import {ArchiveService} from './services/archive.service';
 import {AuthenticationService} from './authentication/authentication.service';
 import {ProfileService} from './authentication/profile.service';
 import {RetriveChartService} from './services/retrive-chart.service';
+import {AboutComponent} from './page/about/about.component';
 
 const config: SocketIoConfig = {url: 'http://192.168.1.160:8081/try', options: {}};
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
@@ -46,6 +47,7 @@ export const authenticationApiUrl = 'http://localhost:3000/api/user';
     DashboardComponent,
     SummaryCardComponent,
     CardComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

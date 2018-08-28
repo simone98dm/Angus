@@ -6,6 +6,7 @@ import {PageNotFoundComponent} from '../page/shared/page-not-found/page-not-foun
 import {SettingComponent} from '../page/setting/setting/setting.component';
 import {DashboardComponent} from '../page/dashboard/dashboard.component';
 import {GuardComponent} from '../authentication/guard/guard.component';
+import {AboutComponent} from '../page/about/about.component';
 
 const routes: Routes = [
   // Login paths
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path: 'list', canActivate: [GuardComponent], component: ListComponent},
   // Option Route
   {path: 'setting', canActivate: [GuardComponent], component: SettingComponent},
+  // about route
+  {path: 'about', component: AboutComponent},
   // main route, it will bring the user directly to the home
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // ERROR ROUTES
