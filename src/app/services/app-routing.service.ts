@@ -7,10 +7,12 @@ import {SettingComponent} from '../page/setting/setting/setting.component';
 import {DashboardComponent} from '../page/dashboard/dashboard.component';
 import {GuardComponent} from '../authentication/guard/guard.component';
 import {AboutComponent} from '../page/about/about.component';
+import {LogoutComponent} from '../authentication/logout/logout.component';
 
 const routes: Routes = [
-  // Login paths
+  // Auth paths
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   // Dashboard route
   {path: 'dashboard', canActivate: [GuardComponent], component: DashboardComponent},
   // List Route
