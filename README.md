@@ -1,27 +1,51 @@
-# Angus
+# Angus - real time dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This project aim to create a simple real time dashboard. 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
+### How to install
 
-## Code scaffolding
+- Get the project
+```bash
+~$ git clone http://github.com/simone98dm/Angus.git
+~$ cd Angus/
+~$ npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- After you need to install the database (you should first install mysql)
+```$xslt
+~$ cd src/api/
+~$ mysql -u root -p
+ (login)
 
-## Build
+ mysql> CREATE DATABASE db_piedpiper;
+ mysql> CREATE USER 'piedpiper'@'localhost' IDENTIFIED BY 'PiedPiper2018';
+ mysql> GRANT SELECT, INSERT, UPDATE ON `piedpiper`.* TO 'piedpiper'@'localhost';
+ mysql> FLUSH PRIVILEGES
+ (exit)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+~$ mysql -u root -p db_piedpiper < db_piedpier.sql
+```
+(If you want to change some part of the process remember to change the file 'config.js' which contains all the information to get the access to database)
 
-## Running unit tests
+---
+### How to run
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before: run the API
+```bash
+~$ cd src/api/
+~$ nodemon app.js
+```
 
-## Running end-to-end tests
+After: run the project
+```
+~$ cd  ../../
+~$ npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For the first run the default credentials are:
+```
+user: fake.account
+pass: thisissparta
+```
