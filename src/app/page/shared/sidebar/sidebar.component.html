@@ -1,15 +1,9 @@
 <div class="sidebar-header">
   <h1>Pied Piper</h1>
 </div>
-<style>
-  a {
-    border-radius: 8px;
-    margin: 8px;
-  }
-</style>
 <ul class="list-unstyled components">
   <!-- dashboard homepage -->
-  <li class="active">
+  <li [routerLinkActive]="['active']">
     <a routerLink="/dashboard">
       <i class="material-icons">
         dashboard
@@ -18,7 +12,7 @@
   </li>
 
   <!-- list of all machine -->
-  <li>
+  <li [routerLinkActive]="['active']">
     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
       <i class="material-icons">
         list
@@ -39,7 +33,7 @@
   </li>
 
   <!-- enter in settings -->
-  <li>
+  <li [routerLinkActive]="['active']">
     <a routerLink="/setting"><i class="material-icons">
       settings
     </i> Setting
