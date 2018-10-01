@@ -8,6 +8,7 @@ import {DashboardComponent} from '../page/dashboard/dashboard.component';
 import {GuardComponent} from '../authentication/guard/guard.component';
 import {AboutComponent} from '../page/about/about.component';
 import {LogoutComponent} from '../authentication/logout/logout.component';
+import {HomeComponent} from '../page/home/home.component';
 
 const routes: Routes = [
   // Auth paths
@@ -19,10 +20,12 @@ const routes: Routes = [
   {path: 'list', canActivate: [GuardComponent], component: ListComponent},
   // Option Route
   {path: 'setting', canActivate: [GuardComponent], component: SettingComponent},
+  // Home route
+  {path: 'home', component: HomeComponent},
   // about route
   {path: 'about', component: AboutComponent},
   // main route, it will bring the user directly to the home
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   // ERROR ROUTES
   {path: '**', redirectTo: '/404', pathMatch: 'full'},
   {path: '404', component: PageNotFoundComponent}
