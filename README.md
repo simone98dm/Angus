@@ -49,3 +49,11 @@ For the first run the default credentials are:
 user: fake.account
 pass: thisissparta
 ```
+
+---
+### Gource
+Little thing to view the progress of the project by [Gource](https://gource.io/)
+```
+~$ cd Angus/
+~$ gource -f -s 1 -a 1 --key --max-files 0 --disable-progress
+```
