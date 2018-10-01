@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <nav id="sidebar">
+    <app-sidebar></app-sidebar>
+  </nav>
+  <div id="content">
+    <div class="container-fluid">
+      <div class="jumbotron">
+        <h1>Area {{idArea}}</h1>
+      </div>
+      <!-- summary cards -->
+      <div class="row">
+        <div class="col">
+          <div class="list-group">
+
+            <div *ngFor="let component of area">
+              <div *ngIf="component.idArea == this.idArea">
+                <div class="list-group" *ngFor="let sensor of component.sensors">
+                  <a routerLink="pool/{{sensor.id}}" class="list-group-item list-group-item-action">{{sensor.name}}:
+                    {{sensor.desc}}</a>
+                </div>
+              </div>
+            </div>
+
+
+            <!--
+            <a href="#" class="list-group-item list-group-item-action active">
+              Cras justo odio
+            </a>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

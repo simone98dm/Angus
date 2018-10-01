@@ -9,6 +9,7 @@ import {GuardComponent} from '../authentication/guard/guard.component';
 import {AboutComponent} from '../page/about/about.component';
 import {LogoutComponent} from '../authentication/logout/logout.component';
 import {HomeComponent} from '../page/home/home.component';
+import {AreaComponent} from '../page/area/area.component';
 
 const routes: Routes = [
   // Auth paths
@@ -23,7 +24,9 @@ const routes: Routes = [
   // Home route
   {path: 'home', component: HomeComponent},
   // about route
-  {path: 'about', component: AboutComponent},
+  {path: 'about', canActivate: [GuardComponent], component: AboutComponent},
+  // area route
+  {path: 'area/:id', canActivate: [GuardComponent], component: AreaComponent},
   // main route, it will bring the user directly to the home
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   // ERROR ROUTES

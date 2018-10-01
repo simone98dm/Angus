@@ -20,14 +20,10 @@
       List of machines
     </a>
     <ul class="collapse list-unstyled" id="pageSubmenu">
-      <li>
-        <a href="#">Area 1</a>
-      </li>
-      <li>
-        <a href="#">Area 2</a>
-      </li>
-      <li>
-        <a href="#">Area 3</a>
+      <li *ngFor="let item of areaList">
+        <a routerLink="/area/{{item.id}}"><i class="material-icons">
+          keyboard_arrow_right
+        </i>{{item.name}}</a>
       </li>
     </ul>
   </li>
