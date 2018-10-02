@@ -25,7 +25,7 @@ This project aim to create a simple real time dashboard.
  mysql> FLUSH PRIVILEGES
  (exit)
 
-~$ mysql -u root -p db_piedpiper < db_piedpier.sql
+~$ mysql -u root -p db_piedpiper < db_piedpiper.sql
 ```
 (If you want to change some part of the process remember to change the file 'config.js' which contains all the information to get the access to database)
 
