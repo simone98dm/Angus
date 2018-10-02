@@ -14,7 +14,7 @@ This project aim to create a simple real time dashboard.
 ```
 
 - After you need to install the database (you should first install mysql)
-```$xslt
+```bash
 ~$ cd src/api/
 ~$ mysql -u root -p
  (login)
@@ -39,7 +39,7 @@ Before: run the API
 ```
 
 After: run the project
-```
+```bash
 ~$ cd  ../../
 ~$ npm start
 ```
@@ -48,4 +48,12 @@ For the first run the default credentials are:
 ```
 user: fake.account
 pass: thisissparta
+```
+
+---
+### Gource
+Little thing to view the progress of the project by [Gource](https://gource.io/)
+```bash
+~$ cd Angus/
+~$ gource -f -s 1 -a 1 --key --max-files 0 --disable-progress
 ```
