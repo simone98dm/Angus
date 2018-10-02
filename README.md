@@ -8,7 +8,7 @@ This project aim to create a simple real time dashboard.
 
 - Get the project
 ```bash
-~$ git clone http://github.com/simone98dm/Angus.git
+~$ git clone https://github.com/simone98dm/Angus.git
 ~$ cd Angus/
 ~$ npm install
 ```

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ProfileService} from '../../../authentication/profile.service';
+import {ProfileDTO} from '../../../models/Profile';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,15 +9,22 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   public areaList = [];
+  public loggedUser: ProfileDTO;
 
-  constructor() {
+  constructor(private user: ProfileService) {
     this.areaList = [
-      {id: 1, name: 'Produzione'},
-      {id: 2, name: 'Piscine'},
-      {id: 3, name: 'Stoccaggio'},
-      {id: 4, name: 'Magazzino'},
-      {id: 5, name: 'Spedizioni'}
+      {id: 1, name: 'Lavaggio'},
+      {id: 2, name: 'Pretrattamento'},
+      {id: 3, name: 'Stoccaggio'}
     ];
+
+    user.getUserDetails()
+      .subscribe((data) => {
+          this.loggedUser = data;
+        },
+        (error1) => {
+          console.log(error1);
+        });
   }
 
   ngOnInit() {

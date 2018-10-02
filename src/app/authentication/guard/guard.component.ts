@@ -15,7 +15,7 @@ export class GuardComponent implements CanActivate {
   }
 
   canActivate() {
-    if (this.auth.getToken() && this.auth.isAuthenticated()) {
+    if (this.auth.isAuthenticated()) {
       return true;
     }
 

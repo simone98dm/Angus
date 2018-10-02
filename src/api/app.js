@@ -115,6 +115,42 @@ app.get("/api/user", verifyToken, (req, res) => {
   );
 });
 
+app.get("/api/line/:id", verifyToken, (req, res) => {
+  //SELECT * FROM establishments JOIN production_lines ON establishments.id = production_lines.establishment_id JOIN machines ON machines.production_line_id = production_lines.id JOIN sensors ON sensors.machine_id = machines.id;
+  let connection = mysql.createConnection({
+    host: config.hostname,
+    user: config.username,
+    password: config.password,
+    database: config.db_name
+  });
+  connection.connect();
+  connection.query(
+      `SELECT accounts.id, accounts.username, accounts.name, accounts.surname, accounts.email, accounts.grade, accounts.profileImg   
+    FROM accounts 
+    WHERE accounts.email = ? AND accounts.id = ?;`,
+    [req.userEmail, req.userId],
+    (error, result, fields) => {
+      connection.end();
+      //if
+      if (error) throw error;
+      //else
+      if (result.length <= 0) {
+        return res.status(401).end();
+      } else {
+        return res.status(200).send({
+          auth: true,
+          username: result[0].username,
+          name: result[0].name,
+          surname: result[0].surname,
+          email: result[0].email,
+          grade: result[0].grade,
+          profileImg: result[0].profileImg
+        });
+      }
+    }
+  );
+});
+
 /**
  * Start the server
  */

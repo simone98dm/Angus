@@ -19,6 +19,7 @@ export class ProfileService {
       })
       .map((response: IUserDetailsResponse) => {
         if (response.auth !== false) {
+          console.log('ho preso i dati dell\'uutente dal database');
           return new ProfileDTO(
             response.username,
             response.name,

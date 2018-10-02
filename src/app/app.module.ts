@@ -18,7 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ChartsModule} from 'ng2-charts';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
-import {SocketIoConfig, SocketIoModule} from 'ng-socket-io';
+import {SocketIoModule} from 'ng-socket-io';
 import {SummaryCardComponent} from './page/summary-card/summary-card.component';
 import {CardComponent} from './page/card/card.component';
 import {ArchiveService} from './services/archive.service';
@@ -29,9 +29,9 @@ import {AboutComponent} from './page/about/about.component';
 import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
 
-const config: SocketIoConfig = {url: 'http://192.168.1.160:8081/try', options: {}};
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
 export const authenticationApiUrl = 'http://localhost:3000/api/user';
+export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ export const authenticationApiUrl = 'http://localhost:3000/api/user';
   ],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot(config),
+    SocketIoModule.forRoot(sebaSocketIO),
     HttpClientModule,
     AppRoutingService,
     ChartsModule,

@@ -5,13 +5,11 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import {tokenNotExpired} from 'angular2-jwt';
 
-
 export const TOKEN_NAME = 'currentUser';
 
 @Injectable()
 export class AuthenticationService {
   public token: string;
-
 
   constructor(private http: HttpClient) {
     this.token = this.getToken();
@@ -51,8 +49,7 @@ export class AuthenticationService {
   }
 
   public isAuthenticated(): boolean {
-    const token = this.getToken();
-    return tokenNotExpired(TOKEN_NAME, token);
+    return tokenNotExpired(TOKEN_NAME, this.getToken());
   }
 }
 
