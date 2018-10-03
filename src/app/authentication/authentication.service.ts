@@ -4,6 +4,7 @@ import {authenticationApiUrl} from '../app.module';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import {tokenNotExpired} from 'angular2-jwt';
+import {ArchiveService} from '../services/archive.service';
 
 export const TOKEN_NAME = 'currentUser';
 
@@ -11,7 +12,7 @@ export const TOKEN_NAME = 'currentUser';
 export class AuthenticationService {
   public token: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public archive: ArchiveService) {
     this.token = this.getToken();
   }
 
@@ -34,18 +35,16 @@ export class AuthenticationService {
 
   logout(): void {
     this.token = null;
-    localStorage.removeItem(TOKEN_NAME);
+    this.archive.removeToken();
   }
 
 
   setToken(token: string): void {
-    localStorage.setItem(TOKEN_NAME, JSON.stringify({token: token}));
+    this.archive.saveToken(token);
   }
 
   getToken(): string {
-    if (localStorage.getItem(TOKEN_NAME)) {
-      return JSON.parse(localStorage.getItem(TOKEN_NAME)).token;
-    }
+    return this.archive.loadToken();
   }
 
   public isAuthenticated(): boolean {

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
+import {ProfileDTO} from '../../models/Profile';
+import {ArchiveService} from '../../services/archive.service';
 
 @Component({
   selector: 'app-area',
@@ -9,8 +11,10 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class AreaComponent implements OnInit {
   public idArea: number;
   public area;
+  public userLogged: ProfileDTO = null;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+
+  constructor(private activatedRoute: ActivatedRoute, public archive: ArchiveService) {
     this.area = [
       {
         idArea: 1,
@@ -108,16 +112,14 @@ export class AreaComponent implements OnInit {
         ]
       }
     ];
+
+    this.userLogged = this.archive.loadUser();
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.idArea = params['id'];
     });
-
-
   }
-
-
 }
 

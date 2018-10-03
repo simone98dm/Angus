@@ -9,6 +9,44 @@
         <h1>Area {{idArea}}</h1>
       </div>
       <!-- summary cards -->
+      <div class="row" *ngIf="userLogged.grade === 'supervisore'">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">superv</h4>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col" *ngIf="userLogged.grade === 'manutentore'">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">manutent</h4>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col" *ngIf="userLogged.grade === 'root'">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">root</h4>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col" *ngIf="userLogged.grade === 'user'">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">dmmy user</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
       <div class="row">
         <div class="col">
           <div *ngFor="let component of area">
@@ -52,6 +90,7 @@
           </div>
         </div>
       </div>
+      -->
     </div>
   </div>
 </div>

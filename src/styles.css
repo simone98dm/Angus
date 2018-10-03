@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Product Sans', sans-serif;
+  /*background-image: linear-gradient(to bottom, #ffffff, #fdfdfd, #fbfcfb, #fafafa, #f8f8f8);*/
+
 }
 
 .t-bold {
@@ -18,12 +20,6 @@ body {
 .material-icons {
   vertical-align: middle;
 }
-
-/*-----------------------------------*/
-/*-----------------------------------*/
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
 
 .wrapper {
   display: flex;

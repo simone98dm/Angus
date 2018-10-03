@@ -10,47 +10,49 @@
         <h1>Settings</h1>
       </div>
 
-      <form #myForm="ngForm" (ngSubmit)="saveForm(myForm)">
-        <img class="form-control" [src]="loggedImageProfile"
-             style="margin: auto; border-radius: 50%; height: 250px; width: 250px;">
-        <div class="form-group">
-          <label for="emailInput">Email: </label>
-          <input class="form-control" id="emailInput" readonly placeholder="{{loggedEmail}}">
-        </div>
+      <div class="disabled" style="pointer-events: none; opacity: 0.4;">
+        <form #myForm="ngForm" (ngSubmit)="saveForm(myForm)">
+          <img class="form-control" [src]="loggedImageProfile"
+               style="margin: auto; border-radius: 50%; height: 250px; width: 250px;">
+          <div class="form-group">
+            <label for="emailInput">Email: </label>
+            <input class="form-control" id="emailInput" readonly placeholder="{{loggedEmail}}">
+          </div>
 
-        <div class="form-group">
-          <div class="row">
-            <div class="col-md-6">
-              <label for="nameInput">Name: </label>
-              <input class="form-control" id="nameInput" readonly placeholder="{{loggedName}}">
-            </div>
-            <div class="col-md-6">
-              <label for="surnameInput">Surname: </label>
-              <input class="form-control" id="surnameInput" readonly placeholder="{{loggedSurname}}">
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-md-6">
-              <button class="btn btn-success btn-sm btn-block"><i class="material-icons"
-                                                                  style="vertical-align: middle">save</i>
-                Save
-                all
-                settings
-              </button>
-            </div>
-            <div class="col-md-6">
-              <button class="btn btn-danger btn-sm btn-block"><i class="material-icons"
-                                                                 style="vertical-align: middle">backspace</i>
-                Reset
-                to default
-              </button>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="nameInput">Name: </label>
+                <input class="form-control" id="nameInput" readonly placeholder="{{loggedName}}">
+              </div>
+              <div class="col-md-6">
+                <label for="surnameInput">Surname: </label>
+                <input class="form-control" id="surnameInput" readonly placeholder="{{loggedSurname}}">
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+          <hr>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <button class="btn btn-success btn-sm btn-block"><i class="material-icons"
+                                                                    style="vertical-align: middle">save</i>
+                  Save
+                  all
+                  settings
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-danger btn-sm btn-block"><i class="material-icons"
+                                                                   style="vertical-align: middle">backspace</i>
+                  Reset
+                  to default
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

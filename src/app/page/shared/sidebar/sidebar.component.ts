@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProfileService} from '../../../authentication/profile.service';
 import {ProfileDTO} from '../../../models/Profile';
+import {ArchiveService} from '../../../services/archive.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,22 +10,16 @@ import {ProfileDTO} from '../../../models/Profile';
 })
 export class SidebarComponent implements OnInit {
   public areaList = [];
-  public loggedUser: ProfileDTO;
+  public loggedUser: ProfileDTO = new ProfileDTO('simple', 'simple', 'simple', 'simple', 'simple', 'non');
 
-  constructor(private user: ProfileService) {
+  constructor(private user: ProfileService, public archive: ArchiveService) {
     this.areaList = [
       {id: 1, name: 'Lavaggio'},
       {id: 2, name: 'Pretrattamento'},
       {id: 3, name: 'Stoccaggio'}
     ];
 
-    user.getUserDetails()
-      .subscribe((data) => {
-          this.loggedUser = data;
-        },
-        (error1) => {
-          console.log(error1);
-        });
+    this.loggedUser = this.archive.loadUser();
   }
 
   ngOnInit() {
