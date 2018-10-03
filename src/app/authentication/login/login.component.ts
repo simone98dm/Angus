@@ -20,7 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authenticationService.logout();
+    if (this.authenticationService.isAuthenticated() && this.authenticationService.getToken()) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.authenticationService.logout();
+      this.router.navigate(['/login']);
+    }
   }
 
   login() {
@@ -42,9 +47,6 @@ export class LoginComponent implements OnInit {
           this.error = 'Username or password is incorrect';
           this.style = 'alert alert-warning';
           this.loading = false;
-        },
-        () => {
-          console.log('Request completed');
         });
   }
 }

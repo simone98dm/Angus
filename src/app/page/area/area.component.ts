@@ -114,6 +114,10 @@ export class AreaComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.idArea = params['id'];
     });
+
+
   }
 
+
 }
+

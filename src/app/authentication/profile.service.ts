@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {authenticationApiUrl} from '../app.module';
+import {userApiUrl} from '../app.module';
 import {ProfileDTO} from '../models/Profile';
 import 'rxjs/add/operator/map';
 import {AuthenticationService} from './authentication.service';
@@ -13,13 +13,12 @@ export class ProfileService {
   }
 
   getUserDetails(): Observable<ProfileDTO> {
-    return this.http.get(authenticationApiUrl,
+    return this.http.get(userApiUrl,
       {
         headers: new HttpHeaders().set('x-access-token', this.auth.getToken())
       })
       .map((response: IUserDetailsResponse) => {
         if (response.auth !== false) {
-          console.log('ho preso i dati dell\'uutente dal database');
           return new ProfileDTO(
             response.username,
             response.name,
