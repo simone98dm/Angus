@@ -10,10 +10,8 @@ export const TOKEN_NAME = 'currentUser';
 
 @Injectable()
 export class AuthenticationService {
-  public token: string;
 
   constructor(private http: HttpClient, public archive: ArchiveService) {
-    this.token = this.getToken();
   }
 
   login(email: string, password: string): Observable<boolean> {
@@ -34,8 +32,8 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    this.token = null;
     this.archive.removeToken();
+    this.archive.removeUser();
   }
 
 

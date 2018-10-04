@@ -8,5 +8,5 @@ module.exports = {
   hostname: "localhost",
   username: "piedpiper",
   password: "PiedPiper2018",
-  db_name: "db_piedpiper"
+  db_name: "piedpiper"
 };
