@@ -8,6 +8,7 @@ This project aim to create a simple real time dashboard.
 
 - Get the project
 ```bash
+~$ cd C:\
 ~$ git clone https://github.com/simone98dm/Angus.git
 ~$ cd Angus/
 ~$ npm install
@@ -34,13 +35,16 @@ This project aim to create a simple real time dashboard.
 
 Before: run the API
 ```bash
+~$ pwd
+  C:\Angus
 ~$ cd src/api/
 ~$ nodemon app.js
 ```
 
 After: run the project
 ```bash
-~$ cd  ../../
+~$ pwd
+  C:\Angus
 ~$ npm start
 ```
 
