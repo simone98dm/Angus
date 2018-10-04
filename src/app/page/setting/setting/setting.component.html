@@ -12,22 +12,22 @@
 
       <div class="disabled" style="pointer-events: none; opacity: 0.4;">
         <form #myForm="ngForm" (ngSubmit)="saveForm(myForm)">
-          <img class="form-control" [src]="loggedImageProfile"
+          <img class="form-control" [src]="loggedUser.profileImg"
                style="margin: auto; border-radius: 50%; height: 250px; width: 250px;">
           <div class="form-group">
             <label for="emailInput">Email: </label>
-            <input class="form-control" id="emailInput" readonly placeholder="{{loggedEmail}}">
+            <input class="form-control" id="emailInput" readonly placeholder="{{loggedUser.email}}">
           </div>
 
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
                 <label for="nameInput">Name: </label>
-                <input class="form-control" id="nameInput" readonly placeholder="{{loggedName}}">
+                <input class="form-control" id="nameInput" readonly placeholder="{{loggedUser.name}}">
               </div>
               <div class="col-md-6">
                 <label for="surnameInput">Surname: </label>
-                <input class="form-control" id="surnameInput" readonly placeholder="{{loggedSurname}}">
+                <input class="form-control" id="surnameInput" readonly placeholder="{{loggedUser.surname  }}">
               </div>
             </div>
           </div>

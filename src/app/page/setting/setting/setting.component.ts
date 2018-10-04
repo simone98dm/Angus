@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {ProfileService} from '../../../authentication/profile.service';
+import {ArchiveService} from '../../../services/archive.service';
+import {ProfileDTO} from '../../../models/Profile';
 
 @Component({
   selector: 'app-setting',
@@ -8,48 +9,17 @@ import {ProfileService} from '../../../authentication/profile.service';
   styleUrls: ['./setting.component.css']
 })
 export class SettingComponent implements OnInit {
-  loggedEmail: string;
-  loggedName: string;
-  loggedSurname: string;
-  loggedImageProfile: string;
-  @Output()
-  save: EventEmitter<TempProfileDTO> = new EventEmitter<TempProfileDTO>();
+  loggedUser: ProfileDTO;
 
-  constructor(private profile: ProfileService) {
-    profile.getUserDetails()
-      .subscribe((data) => {
-          this.loggedName = data.name;
-          this.loggedEmail = data.email;
-          this.loggedSurname = data.surname;
-          this.loggedImageProfile = data.profileImg;
-        },
-        (error1) => {
-          console.log(error1);
-        },
-        () => {
-          console.log('Task complete!');
-        });
+  constructor(private archive: ArchiveService) {
+    this.loggedUser = archive.loadUser();
   }
 
   ngOnInit() {
   }
 
   saveForm(myForm: NgForm) {
-    if (myForm.valid) {
-      this.save.emit(
-        new TempProfileDTO(
-          myForm.value.email,
-          myForm.value.name,
-          myForm.value.surname
-        )
-      );
-    }
+
   }
 
-}
-
-
-export class TempProfileDTO {
-  constructor(public email: string, public name: string, public surname: string) {
-  }
 }
