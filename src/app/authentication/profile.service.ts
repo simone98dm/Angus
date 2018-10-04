@@ -18,16 +18,14 @@ export class ProfileService {
         headers: new HttpHeaders().set('x-access-token', this.auth.getToken())
       })
       .map((response: IUserDetailsResponse) => {
-        if (response.auth !== false) {
-          this.archive.saveUser(
-            new ProfileDTO(
-              response.username,
-              response.name,
-              response.surname,
-              response.email,
-              response.grade,
-              response.profileImg
-            )
+        if (response.auth === true) {
+          return new ProfileDTO(
+            response.username,
+            response.name,
+            response.surname,
+            response.email,
+            response.grade,
+            response.profileImg
           );
         } else {
           return null;

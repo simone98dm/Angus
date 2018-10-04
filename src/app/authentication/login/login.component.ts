@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../authentication.service';
 import {Router} from '@angular/router';
+import {ProfileService} from '../profile.service';
+import {ArchiveService} from '../../services/archive.service';
+import {ProfileDTO} from '../../models/Profile';
 
 @Component({
   selector: 'app-login',
@@ -16,19 +19,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService) {
+    private authenticationService: AuthenticationService,
+    private user: ProfileService,
+    private archive: ArchiveService) {
   }
 
   ngOnInit() {
-
     this.authenticationService.logout();
-    /*
-    if (this.authenticationService.isAuthenticated() && this.authenticationService.getToken()) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.router.navigate(['/login']);
-    }
-    */
   }
 
   login() {
@@ -37,7 +34,14 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (result) => {
           if (result === true) {
-            this.router.navigate(['/dashboard']);
+            this.user.getUserDetails().subscribe((data: ProfileDTO) => {
+              this.archive.saveUser(data);
+              if (this.archive.loadUser() !== null) {
+                this.router.navigate(['/dashboard']);
+              } else {
+                this.router.navigate(['/login']);
+              }
+            });
           } else {
             this.error = 'Username or password is incorrect';
             this.style = 'alert alert-warning';
@@ -45,7 +49,7 @@ export class LoginComponent implements OnInit {
           }
         },
         (error1) => {
-          // console.log(error1);
+          console.log(error1);
           this.error = 'Username or password is incorrect';
           this.style = 'alert alert-warning';
           this.loading = false;
