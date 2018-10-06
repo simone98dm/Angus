@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 28, 2018 at 08:53 AM
--- Server version: 5.7.23-0ubuntu0.18.04.1
--- PHP Version: 7.2.7-0ubuntu0.18.04.2
+-- Host: 127.0.0.1
+-- Generation Time: Oct 06, 2018 at 09:02 AM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.1.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_piedpiper`
 --
-
-
 
 -- --------------------------------------------------------
 
@@ -47,7 +47,7 @@ CREATE TABLE `accounts` (
   `name` varchar(16) DEFAULT NULL,
   `surname` varchar(32) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
-  `grade` varchar(16) DEFAULT NULL,
+  `grade` int(11) NOT NULL DEFAULT '4',
   `profileImg` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -56,7 +56,10 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `username`, `name`, `surname`, `email`, `grade`, `profileImg`) VALUES
-(3, 'thelegend27', 'HowTo', 'Basic', 'fake.account', 'user', 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/57/57ea29ec78eb3dd604c1873f36c0355444a9ed7f_full.jpg');
+(3, 'Tempalte Root', 'Crash', 'Override', 'hack.the.planet', 0, 'https://pbs.twimg.com/profile_images/475425883914649600/y9sA7OnM_400x400.jpeg'),
+(4, 'Template Manutentore', 'Mario', 'Rossi', 'm.rossi', 2, 'http://ewic.org/wp-content/themes/ewic/images/Construction%20Worker.png'),
+(5, 'Template Supervisore', 'Luisa', 'Verdi', 'l.verdi', 1, 'https://static1.squarespace.com/static/57d3c6eff5e231385725f413/t/58986a9986e6c0c6ce7ee861/1486383774142/'),
+(6, 'Template User', 'Dummy', 'User', 'd.user', 4, '');
 
 -- --------------------------------------------------------
 
@@ -183,7 +186,7 @@ INSERT INTO `sensors` (`id`, `machine_id`, `type`) VALUES
 --
 
 CREATE TABLE `shadow` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL UNIQUE,
   `passwd` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -192,7 +195,10 @@ CREATE TABLE `shadow` (
 --
 
 INSERT INTO `shadow` (`id`, `passwd`) VALUES
-(3, '*7E3DC0312508EC46D383AA4888D252D4B1B969AD');
+(3, '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9'), # 123456
+(4, '*AC3FA331273331FB73B4933506CA9FF075D6EC5B'), # qwerty
+(5, '*960FECDC3DF94390AE7E6883F74FBD4DD7BF9694'), # asdfgh
+(6, '*BE5B0C03D1581AC0961C9C0267428F28167FED54'); # zxcvbn 
 
 --
 -- Indexes for dumped tables
@@ -205,6 +211,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `shadow`
+--
+ALTER TABLE `shadow`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -212,7 +224,9 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
