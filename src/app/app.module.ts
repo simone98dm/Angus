@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-
 import {AppComponent} from './app.component';
 import {SettingComponent} from './page/setting/setting/setting.component';
 import {ListComponent} from './page/list/list/list.component';
