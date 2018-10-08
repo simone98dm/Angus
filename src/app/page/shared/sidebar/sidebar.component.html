@@ -2,6 +2,7 @@
   <h3>{{loggedUser.name}} {{loggedUser.surname}}</h3>
   <p>come {{loggedUser.grade}}</p>
 </div>
+
 <ul class="list-unstyled components">
   <!-- dashboard homepage -->
   <li [routerLinkActive]="['active']">
@@ -14,13 +15,13 @@
 
   <!-- list of all machine -->
   <li [routerLinkActive]="['active']">
-    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+    <a href="#pageSubmenu" data-toggle="collapse" class="dropdown-toggle" aria-labelledby="headingOne">
       <i class="material-icons">
         list
       </i>
       List of machines
     </a>
-    <ul class="collapse list-unstyled" id="pageSubmenu">
+    <ul class="collapse show list-unstyled" id="pageSubmenu">
       <li *ngFor="let item of areaList">
         <a routerLink="/area/{{item.id}}"><i class="material-icons">
           keyboard_arrow_right
@@ -33,14 +34,8 @@
   <li [routerLinkActive]="['active']">
     <a routerLink="/setting"><i class="material-icons">
       settings
-    </i> Setting
+    </i> Settings
     </a>
-  </li>
-
-  <li [routerLinkActive]="['active']">
-    <a routerLink="/logout"><i class="material-icons">
-      exit_to_app
-    </i> Logout</a>
   </li>
 
 </ul>
@@ -48,5 +43,9 @@
 <ul class="list-unstyled CTAs">
   <li>
     <a routerLink="/about" class="btn btn-outline-info">About</a>
+    <br>
+    <a routerLink="/logout" class="btn btn-outline-danger"><i class="material-icons">
+        settings_power
+      </i> Logout</a>
   </li>
 </ul>

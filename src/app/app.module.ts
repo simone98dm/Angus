@@ -30,9 +30,12 @@ import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
-export const authenticationApiUrl = 'http://192.168.101.90:8081/api/auth/login';
-export const userApiUrl = 'http://192.168.101.90:8081/api/auth/user';
-export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
+// export const authenticationApiUrl = 'http://localhost:8081/api/auth/login';
+// export const userApiUrl = 'http://localhost:8081/api/auth/user';
+// export const sebaSocketIO = {url: 'http://localhost:8081'};
+export const authenticationApiUrl = 'http://192.168.1.160:8081/api/auth/login';
+export const userApiUrl = 'http://192.168.1.160:8081/user';
+export const sebaSocketIO = {url: 'http://192.168.1.160:8081'};
 
 @NgModule({
   declarations: [
