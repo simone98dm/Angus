@@ -25,7 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authenticationService.logout();
+    if (this.authenticationService.isAuthenticated()) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.authenticationService.logout();
+    }
   }
 
   login() {
@@ -35,9 +39,11 @@ export class LoginComponent implements OnInit {
         (result) => {
           if (result === true) {
             this.user.getUserDetails().subscribe((data: ProfileDTO) => {
-              this.archive.saveUser(data);
-              if (this.archive.loadUser() !== null) {
+              this.archive.setProfile(data);
+              console.log('Profile saved!');
+              if (this.archive.getProfile() !== null) {
                 this.router.navigate(['/dashboard']);
+
               } else {
                 this.router.navigate(['/login']);
               }

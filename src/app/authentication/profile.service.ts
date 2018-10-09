@@ -3,19 +3,18 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {userApiUrl} from '../app.module';
 import {ProfileDTO} from '../models/Profile';
 import 'rxjs/add/operator/map';
-import {AuthenticationService} from './authentication.service';
 import {ArchiveService} from '../services/archive.service';
 
 @Injectable()
 export class ProfileService {
 
-  constructor(private http: HttpClient, private auth: AuthenticationService, private archive: ArchiveService) {
+  constructor(private http: HttpClient, private archive: ArchiveService) {
   }
 
   getUserDetails() {
     return this.http.get(userApiUrl,
       {
-        headers: new HttpHeaders().set('x-access-token', this.auth.getToken())
+        headers: new HttpHeaders().set('x-access-token', this.archive.getToken())
       })
       .map((response: IUserDetailsResponse) => {
         if (response.auth === true) {
@@ -40,6 +39,6 @@ export interface IUserDetailsResponse {
   name: string;
   surname: string;
   email: string;
-  grade: string;
+  grade: number;
   profileImg: string;
 }

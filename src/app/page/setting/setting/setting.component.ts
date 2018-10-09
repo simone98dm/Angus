@@ -12,7 +12,7 @@ export class SettingComponent implements OnInit {
   loggedUser: ProfileDTO;
 
   constructor(private archive: ArchiveService) {
-    this.loggedUser = archive.loadUser();
+    this.loggedUser = archive.getProfile();
   }
 
   ngOnInit() {

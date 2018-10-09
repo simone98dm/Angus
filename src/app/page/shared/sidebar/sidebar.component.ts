@@ -10,7 +10,7 @@ import {ArchiveService} from '../../../services/archive.service';
 })
 export class SidebarComponent implements OnInit {
   public areaList = [];
-  public loggedUser: ProfileDTO = new ProfileDTO('simple', 'simple', 'simple', 'simple', 'simple', 'non');
+  public loggedUser: ProfileDTO = new ProfileDTO('simple', 'simple', 'simple', 'simple', 3, 'non');
 
   constructor(private user: ProfileService, public archive: ArchiveService) {
     this.areaList = [
@@ -19,7 +19,8 @@ export class SidebarComponent implements OnInit {
       {id: 3, name: 'Stoccaggio'}
     ];
 
-    this.loggedUser = this.archive.loadUser();
+    this.loggedUser = this.archive.getProfile();
+
   }
 
   ngOnInit() {

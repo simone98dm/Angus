@@ -3,13 +3,12 @@ import {Observable} from 'rxjs/Observable';
 import {authenticationApiUrl} from '../app.module';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/catch';
-import {tokenNotExpired} from 'angular2-jwt';
+import {JwtHelper} from 'angular2-jwt';
 import {ArchiveService} from '../services/archive.service';
-
-export const TOKEN_NAME = 'currentUser';
 
 @Injectable()
 export class AuthenticationService {
+  private jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private http: HttpClient, public archive: ArchiveService) {
   }
@@ -19,7 +18,7 @@ export class AuthenticationService {
       .map((response: IAuthenticationResponse) => {
         if (response.auth === true) {
           if (response.token) {
-            this.setToken(response.token);
+            this.archive.setToken(response.token);
             return true;
           }
           return false;
@@ -36,17 +35,14 @@ export class AuthenticationService {
     this.archive.removeUser();
   }
 
-
-  setToken(token: string): void {
-    this.archive.saveToken(token);
-  }
-
-  getToken(): string {
-    return this.archive.loadToken();
-  }
-
   public isAuthenticated(): boolean {
-    return tokenNotExpired(TOKEN_NAME, this.getToken());
+    /*
+    tokenNotExpired(this.archive.getLocalStorageTokenKey(), this.archive.getToken()) &&
+    this other kind of check is commented because allow foreign user to get the location of the token
+    in localstorage, this is a little sec flow
+     */
+    return this.archive.getToken() != null &&
+      !this.jwtHelper.isTokenExpired(this.archive.getToken());
   }
 }
 

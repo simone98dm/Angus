@@ -56,7 +56,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `username`, `name`, `surname`, `email`, `grade`, `profileImg`) VALUES
-(3, 'Tempalte Root', 'Crash', 'Override', 'hack.the.planet', 0, 'https://pbs.twimg.com/profile_images/475425883914649600/y9sA7OnM_400x400.jpeg'),
+(3, 'Tempalte Root', 'Crash', 'Override', 'c.override', 0, 'https://pbs.twimg.com/profile_images/475425883914649600/y9sA7OnM_400x400.jpeg'),
 (4, 'Template Manutentore', 'Mario', 'Rossi', 'm.rossi', 2, 'http://ewic.org/wp-content/themes/ewic/images/Construction%20Worker.png'),
 (5, 'Template Supervisore', 'Luisa', 'Verdi', 'l.verdi', 1, 'https://static1.squarespace.com/static/57d3c6eff5e231385725f413/t/58986a9986e6c0c6ce7ee861/1486383774142/'),
 (6, 'Template User', 'Dummy', 'User', 'd.user', 4, 'http://ammirehaulage.com/uploads/users/dummy-user-img.png');

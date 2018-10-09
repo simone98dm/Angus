@@ -113,7 +113,7 @@ export class AreaComponent implements OnInit {
       }
     ];
 
-    this.userLogged = this.archive.loadUser();
+    this.userLogged = this.archive.getProfile();
   }
 
   ngOnInit() {

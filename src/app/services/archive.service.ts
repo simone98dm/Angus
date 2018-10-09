@@ -3,45 +3,72 @@ import {ProfileDTO} from '../models/Profile';
 
 @Injectable()
 export class ArchiveService {
-  USER_LOGGED_KEY = 'loggedUser';
-  TOKEN_NAME = 'currentUser';
+  //key for logged user
+  _USER_LOGGED_KEY = 'loggedUser';
+
+  //key for the token
+  _TOKEN_NAME = 'currentUser';
 
   constructor() {
   }
 
-  saveUser(user: ProfileDTO) {
-    localStorage.setItem(this.USER_LOGGED_KEY, JSON.stringify(user));
+  /**
+   * set Profile object into the localStorage memory
+   * @param user
+   */
+  setProfile(user: ProfileDTO) {
+    localStorage.setItem(this._USER_LOGGED_KEY, JSON.stringify(user));
   }
 
-  loadUser(): ProfileDTO {
-    if (localStorage.getItem(this.USER_LOGGED_KEY)) {
-      return JSON.parse(localStorage.getItem(this.USER_LOGGED_KEY));
+  /**
+   * get the Profile object saved into the localStorage memory
+   */
+  getProfile(): ProfileDTO {
+    if (localStorage.getItem(this._USER_LOGGED_KEY)) {
+      return JSON.parse(localStorage.getItem(this._USER_LOGGED_KEY));
     }
     return null;
   }
 
+  /**
+   * remove the user currently logged
+   */
   removeUser() {
-    if (localStorage.getItem(this.USER_LOGGED_KEY)) {
-      localStorage.removeItem(this.USER_LOGGED_KEY);
+    if (localStorage.getItem(this._USER_LOGGED_KEY)) {
+      localStorage.removeItem(this._USER_LOGGED_KEY);
     }
   }
 
-  saveToken(token: string) {
-    localStorage.setItem(this.TOKEN_NAME, JSON.stringify({token: token}));
+  /*--------------------------------------------------------------------------------------*/
+
+  /*--------------------------------------------------------------------------------------*/
+
+
+  /**
+   * set the token into the localstorage
+   * @param token
+   */
+  setToken(token: string) {
+    localStorage.setItem(this._TOKEN_NAME, JSON.stringify({token: token}));
   }
 
-  loadToken(): string {
-    if (localStorage.getItem(this.TOKEN_NAME)) {
-      return JSON.parse(localStorage.getItem(this.TOKEN_NAME)).token;
+  /**
+   * get the current token saved in localstorae
+   */
+  getToken(): string {
+    if (localStorage.getItem(this._TOKEN_NAME)) {
+      return JSON.parse(localStorage.getItem(this._TOKEN_NAME)).token;
     }
 
     return null;
   }
 
+  /**
+   * remove the current token
+   */
   removeToken() {
-    if (localStorage.getItem(this.TOKEN_NAME)) {
-      localStorage.removeItem(this.TOKEN_NAME);
+    if (localStorage.getItem(this._TOKEN_NAME)) {
+      localStorage.removeItem(this._TOKEN_NAME);
     }
-
   }
 }
