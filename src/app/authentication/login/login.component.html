@@ -1,4 +1,4 @@
-<div class="card card-container">
+<div class="card card-container"> 
   <img id="profile-img" class="profile-img-card"
        src="https://cdn.shopify.com/s/files/1/0537/1501/products/Pied_Piper_Square_1024x1024.jpg"/>
   <p id="profile-name" class="profile-name-card"></p>
@@ -17,7 +17,7 @@
              #username="ngModel"
              required
              autofocus>
-      <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+      <div *ngIf="f.submitted && !username.valid" class="help-block" style="color:red; font-size: 14px; text-align: center">Username is required</div>
     </div>
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
       <input type="password"
@@ -27,7 +27,7 @@
              placeholder="Password"
              [(ngModel)]="model.password"
              #password="ngModel" required>
-      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+      <div *ngIf="f.submitted && !password.valid" class="help-block" style="color:red; font-size: 14px; text-align: center">Password is required</div>
     </div>
     <div class="form-group">
       <button [disabled]="loading" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
@@ -36,3 +36,4 @@
     </div>
   </form><!-- /form -->
 </div><!-- /card-container -->
+
