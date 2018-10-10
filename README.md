@@ -72,8 +72,10 @@ pass: 123456
 
 ---
 ### Gource
-Little thing to view the progress of the project by [Gource](https://gource.io/)
+View the progress of the project by [Gource](https://gource.io/)
 ```bash
 ~$ cd Angus/
+~$ Gource-View.sh
+or
 ~$ gource -f -s 1 -a 1 --key --max-files 0 --disable-progress
 ```
