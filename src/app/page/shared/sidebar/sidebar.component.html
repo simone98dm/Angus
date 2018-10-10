@@ -1,6 +1,8 @@
-<div class="sidebar-header">
-  <h3>{{loggedUser.name}} {{loggedUser.surname}}</h3>
-  <p>~ {{grade}}</p>
+<div class="sidebar-header" style="align-content: center">
+  <img class="form-control" [src]="loggedUser.profileImg"
+       style="margin-bottom: 2px; border-radius: 100%; height: 200px ">
+  <h3 style="margin-top:20px; text-align: center">{{loggedUser.name}} {{loggedUser.surname}}</h3>
+  <p style="text-align: center">{{grade}}</p>
 </div>
 
 <ul class="list-unstyled components">
@@ -15,7 +17,7 @@
 
   <!-- list of all machine -->
   <li [routerLinkActive]="['active']">
-    <a href="#pageSubmenu" data-toggle="collapse" class="dropdown-toggle" aria-labelledby="headingOne">
+    <a data-toggle="collapse" class="dropdown-toggle" aria-labelledby="headingOne">
       <i class="material-icons">
         list
       </i>
@@ -44,8 +46,29 @@
   <li>
     <a routerLink="/about" class="btn btn-outline-info">About</a>
     <br>
-    <a routerLink="/logout" class="btn btn-outline-danger"><i class="material-icons">
+    <a data-toggle="modal" data-target="#logoutmodal" class="btn btn-outline-danger"><i class="material-icons">
         settings_power
       </i> Logout</a>
   </li>
 </ul>
+
+<!-- Modal -->
+<div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-labelledby="logoutmodalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:Red" id="logoutmodalLabel">Log Out</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="color:black">
+        Disconnettersi dall'account ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" routerLink="/dashboard" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+        <button type="button" routerLink="/logout" class="btn btn-danger" (click)="refresh()">Log Out</button>
+      </div>
+    </div>
+  </div>
+</div>

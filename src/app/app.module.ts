@@ -28,7 +28,6 @@ import {RetriveChartService} from './services/retrive-chart.service';
 import {AboutComponent} from './page/about/about.component';
 import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
-import {NgxPermissionsModule} from 'ngx-permissions';
 import {ProgressMaskComponent} from './page/progress-mask/progress-mask.component';
 
 
@@ -65,7 +64,6 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     AppRoutingService,
     ChartsModule,
     FormsModule,
-    NgxPermissionsModule.forRoot()
   ],
   providers: [
     ArchiveService,
