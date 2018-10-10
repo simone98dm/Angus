@@ -10,6 +10,7 @@ import {ProfileDTO} from '../../../models/Profile';
 })
 export class SettingComponent implements OnInit {
   loggedUser: ProfileDTO;
+  loading = true;
 
   constructor(private archive: ArchiveService) {
     this.loggedUser = archive.getProfile();

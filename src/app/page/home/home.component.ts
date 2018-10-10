@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ArchiveService} from '../../services/archive.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
+  constructor(private archive: ArchiveService) {
   }
 
   ngOnInit() {
+    this.archive.removeUser();
+    this.archive.removeToken();
   }
 
 }

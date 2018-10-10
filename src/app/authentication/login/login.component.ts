@@ -32,18 +32,33 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  getRoleFullnameFromLoggedUser(tmp: ProfileDTO): string {
+    switch (tmp.grade) {
+      case 0:
+        return 'root';
+      case 1:
+        return 'Supervisore';
+      case 2:
+        return 'Manutentore';
+      case 3:
+        return 'user';
+      default:
+        return null;
+    }
+  }
+
   login() {
     this.loading = true;
+
     this.authenticationService.login(this.model.username, this.model.password)
       .subscribe(
         (result) => {
           if (result === true) {
             this.user.getUserDetails().subscribe((data: ProfileDTO) => {
               this.archive.setProfile(data);
-              console.log('Profile saved!');
+              this.archive.setRole(this.getRoleFullnameFromLoggedUser(this.archive.getProfile()));
               if (this.archive.getProfile() !== null) {
                 this.router.navigate(['/dashboard']);
-
               } else {
                 this.router.navigate(['/login']);
               }
@@ -56,8 +71,8 @@ export class LoginComponent implements OnInit {
         },
         (error1) => {
           console.log(error1);
-          this.error = 'Username or password is incorrect';
-          this.style = 'alert alert-warning';
+          this.error = 'Unknow error';
+          this.style = 'alert alert-danger';
           this.loading = false;
         });
   }

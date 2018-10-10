@@ -3,11 +3,14 @@ import {ProfileDTO} from '../models/Profile';
 
 @Injectable()
 export class ArchiveService {
-  //key for logged user
+  // key for logged user
   _USER_LOGGED_KEY = 'loggedUser';
 
-  //key for the token
+  // key for the token
   _TOKEN_NAME = 'currentUser';
+
+  // key for user role
+  _USER_ROLE = 'roleUser';
 
   constructor() {
   }
@@ -49,7 +52,7 @@ export class ArchiveService {
    * @param token
    */
   setToken(token: string) {
-    localStorage.setItem(this._TOKEN_NAME, JSON.stringify({token: token}));
+    localStorage.setItem(this._TOKEN_NAME, token);
   }
 
   /**
@@ -57,7 +60,7 @@ export class ArchiveService {
    */
   getToken(): string {
     if (localStorage.getItem(this._TOKEN_NAME)) {
-      return JSON.parse(localStorage.getItem(this._TOKEN_NAME)).token;
+      return localStorage.getItem(this._TOKEN_NAME);
     }
 
     return null;
@@ -69,6 +72,28 @@ export class ArchiveService {
   removeToken() {
     if (localStorage.getItem(this._TOKEN_NAME)) {
       localStorage.removeItem(this._TOKEN_NAME);
+    }
+  }
+
+  /*--------------------------------------------------------------------------------------*/
+
+  /*--------------------------------------------------------------------------------------*/
+
+
+  setRole(role: string) {
+    localStorage.setItem(this._USER_ROLE, role);
+  }
+
+  getRole() {
+    if (localStorage.getItem(this._USER_ROLE)) {
+      return localStorage.getItem(this._USER_ROLE);
+    }
+    return null;
+  }
+
+  removeRole() {
+    if (localStorage.getItem(this._USER_ROLE)) {
+      return localStorage.removeItem(this._USER_ROLE);
     }
   }
 }

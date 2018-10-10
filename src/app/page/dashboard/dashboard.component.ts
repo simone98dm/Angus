@@ -16,17 +16,13 @@ export class DashboardComponent implements OnInit {
     {title: 'Card3', text: 'Description3', value: '89', icon: '', style: 'success'},
     {title: 'Card4', text: 'Description4', value: '85476', icon: '', style: 'warning'}
   ];
+
+
   loggedUser: ProfileDTO = this.archive.getProfile();
 
   constructor(private archive: ArchiveService) {
   }
 
   ngOnInit() {
-    console.log(this.loggedUser.grade);
   }
-
-  getPermission(): string {
-    return this.loggedUser.getPermissionName();
-  }
-
 }
