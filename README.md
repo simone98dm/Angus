@@ -70,6 +70,25 @@ user: c.override
 pass: 123456
 ```
 
+### Run as a Linux deamon
+This project can be run in linux server.
+```bash
+~$ chmod +x Installer-Linux.sh
+~$ ./Installer-Linux.sh
+  (follow the steps)
+```
+
+To run the webapp in local network, you must have to specify the host (```0.0.0.0```), as we use port ```80``` the script must be runned as ```root``` (N.B: disable ```apache2``` service) at least with ```disable-host-check``` we allow to get access to the webapp by disabling some checks
+```bash
+sudo ng serve --host 0.0.0.0 --port 80 --disable-host-check
+```
+
+To get a better look you may add this line to ```hosts``` file in ```/etc/network/``` (linux) or 
+```C:\Windows\System32\drivers\etc\```
+```bash
+<vm-address>	dashboard.piedpiper.asdf
+```
+
 ---
 ### Gource
 View the progress of the project by [Gource](https://gource.io/)
