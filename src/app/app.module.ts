@@ -28,11 +28,7 @@ import {RetriveChartService} from './services/retrive-chart.service';
 import {AboutComponent} from './page/about/about.component';
 import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
-<<<<<<< HEAD
-=======
-import {NgxPermissionsModule} from 'ngx-permissions';
 import {ProgressMaskComponent} from './page/progress-mask/progress-mask.component';
->>>>>>> dev
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
