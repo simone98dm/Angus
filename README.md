@@ -36,18 +36,19 @@ This project aim to create a simple real time dashboard.
 
 Before: run the API (the api inside the project are deprecated, the updated API can be found [here](https://github.com/sebejbaldin/NodePiedPiper))
 ```bash
+[ UPDATED ]
+~$ pwd
+  C:\
+~$ git clone https://github.com/sebejbaldin/NodePiedPiper.git Api/ && cd Api/
+~$ npm install
+  (check and fix the config.js with the correct credentials)
+~$ nodemon index.js
+
 [ DEPRECATED ] 
 ~$ pwd
   C:\Angus
 ~$ cd src/api/
 ~$ nodemon app.js
-
-[ UPDATED ]
-~$ pwd
-  C:\
-~$ git clone https://github.com/sebejbaldin/NodePiedPiper.git Api/ && cd Api/
-  (check and fix the config.js with the correct credentials)
-~$ nodemon index.js
 ```
 
 After: run the project
