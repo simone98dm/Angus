@@ -6,6 +6,12 @@ This project aim to create a simple real time dashboard.
 ---
 ### How to install
 
+If you are brave and in a linux machine, you can try the ```Installer-Linux.sh``` on root folder...
+
+OR
+
+Use the following steps:  
+
 - Get the project
 ```bash
 ~$ cd C:\
