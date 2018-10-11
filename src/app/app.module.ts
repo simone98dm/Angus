@@ -29,7 +29,8 @@ import {AboutComponent} from './page/about/about.component';
 import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/progress-mask/progress-mask.component';
-import { ModalLogoutComponent } from './page/shared/modal-logout/modal-logout.component';
+import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
+import {BarChartComponent} from './page/graph/bar-chart/bar-chart.component';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
@@ -42,7 +43,6 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     AppComponent,
     SettingComponent,
     ListComponent,
-    GraphComponent,
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
@@ -58,6 +58,7 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     AreaComponent,
     ProgressMaskComponent,
     ModalLogoutComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,
