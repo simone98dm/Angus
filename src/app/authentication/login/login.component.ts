@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
   loading = false;
-  error = 'Enter your credentials';
+  error = 'Accedi con le tue credenziali';
   style = 'alert alert-info';
 
   constructor(
