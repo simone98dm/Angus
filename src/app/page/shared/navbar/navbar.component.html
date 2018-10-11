@@ -4,16 +4,25 @@
 
     <ul class="navbar-nav mr-auto">
     </ul>
-    <a data-toggle="modal" data-target="#logoutmodal" class="btn">
-      <i class="material-icons" style="color: white">
-        home
-      </i>
-    </a>
-    <a routerLink="/dashboard">
+
+  <a routerLink="/dashboard"  class="btn">
+    <i class="material-icons" style="color: white">
+      home
+    </i>
+  </a>
+
+    <a routerLink="/dashboard"  class="btn">
       <i class="material-icons" style="color: white" (click)="refresh()">
         autorenew
       </i>
     </a>
+
+  <a data-toggle="modal" data-target="#logoutmodal" class="btn">
+    <i class="material-icons" style="color: white">
+      settings_power
+    </i>
+  </a>
+
 </nav>
 
 <app-modal-logout></app-modal-logout>

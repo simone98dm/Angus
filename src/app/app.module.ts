@@ -29,7 +29,7 @@ import {AboutComponent} from './page/about/about.component';
 import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/progress-mask/progress-mask.component';
-import { ModalLogoutComponent } from './page/modal-logout/modal-logout.component';
+import { ModalLogoutComponent } from './page/shared/modal-logout/modal-logout.component';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
