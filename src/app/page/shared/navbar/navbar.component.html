@@ -1,4 +1,19 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark"
-     style="background-image: linear-gradient(to right, #008c7e, #008e80, #009183, #009385, #009688);">
-  <a class="navbar-brand" routerLink="/home">Angus</a>
-</nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #293949;">
+  <a class="navbar-brand" style="color: white"><h4>Angus</h4></a>
+
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <a data-toggle="modal" data-target="#logoutmodal" class="btn">
+      <i class="material-icons" style="color: white">
+        home
+      </i>
+    </a>
+    <a routerLink="/dashboard">
+      <i class="material-icons" style="color: white" (click)="refresh()">
+        autorenew
+      </i>
+    </a>
+</nav>
+
+<app-modal-logout></app-modal-logout>

@@ -22,9 +22,6 @@ export class SidebarComponent implements OnInit {
 
   }
 
-  refresh(): void {
-    window.location.reload();
-  }
 
   ngOnInit() {
     this.grade = this.archive.getRole();

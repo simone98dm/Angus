@@ -17,11 +17,11 @@
 
   <!-- list of all machine -->
   <li [routerLinkActive]="['active']">
-    <a data-toggle="collapse" class="dropdown-toggle" aria-labelledby="headingOne">
+    <a data-toggle="collapse"  aria-labelledby="headingOne">
       <i class="material-icons">
         list
       </i>
-      List of machines
+      Lista dei macchinari
     </a>
     <ul class="collapse show list-unstyled" id="pageSubmenu">
       <li *ngFor="let item of areaList">
@@ -36,7 +36,7 @@
   <li [routerLinkActive]="['active']">
     <a routerLink="/setting"><i class="material-icons">
       settings
-    </i> Settings
+    </i> Impostazioni
     </a>
   </li>
 
@@ -52,23 +52,4 @@
   </li>
 </ul>
 
-<!-- Modal -->
-<div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-labelledby="logoutmodalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="color:Red" id="logoutmodalLabel">Log Out</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="color:black">
-        Disconnettersi dall'account ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" routerLink="/dashboard" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-        <button type="button" routerLink="/logout" class="btn btn-danger" (click)="refresh()">Log Out</button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-modal-logout></app-modal-logout>
