@@ -1,11 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-
 import {AppComponent} from './app.component';
 import {SettingComponent} from './page/setting/setting/setting.component';
 import {ListComponent} from './page/list/list/list.component';
-import {GraphComponent} from './page/graph/graph/graph.component';
+import {BarChartComponent} from './page/graph/bar-chart/bar-chart.component';
 import {NavbarComponent} from './page/shared/navbar/navbar.component';
 import {FooterComponent} from './page/shared/footer/footer.component';
 import {PageNotFoundComponent} from './page/shared/page-not-found/page-not-found.component';
@@ -28,9 +27,8 @@ import {RetriveChartService} from './services/retrive-chart.service';
 import {AboutComponent} from './page/about/about.component';
 import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
-import {ProgressMaskComponent} from './page/progress-mask/progress-mask.component';
+import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.component';
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
-import {BarChartComponent} from './page/graph/bar-chart/bar-chart.component';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
@@ -43,6 +41,7 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     AppComponent,
     SettingComponent,
     ListComponent,
+    BarChartComponent,
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
@@ -58,7 +57,6 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     AreaComponent,
     ProgressMaskComponent,
     ModalLogoutComponent,
-    BarChartComponent,
   ],
   imports: [
     BrowserModule,
