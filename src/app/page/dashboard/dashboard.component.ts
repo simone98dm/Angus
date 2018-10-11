@@ -3,6 +3,7 @@ import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
     {title: 'Card3', text: 'Description3', value: '89', icon: '', style: 'success'},
     {title: 'Card4', text: 'Description4', value: '85476', icon: '', style: 'warning'}
   ];
+
 
 
   loggedUser: ProfileDTO = this.archive.getProfile();

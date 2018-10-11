@@ -25,6 +25,9 @@ body {
   display: flex;
   width: 100%;
   align-items: stretch;
+  background-image: url("assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #sidebar {
