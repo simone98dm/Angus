@@ -5,11 +5,7 @@
   </nav>
   <div id="content">
     <div class="container-fluid">
-      <div class="jumbotron">
-        <h1>Area {{idArea}}</h1>
-      </div>
       <!-- summary cards -->
-
       <div class="col">
         <div *ngFor="let component of area">
           <div *ngIf="component.idArea == this.idArea">
@@ -17,7 +13,6 @@
               <div class="card card-body">
                 <h4 class="card-title">
                   {{machine.name}}<span style="margin-left: 15px" class="badge badge-secondary">{{machine.sensors.length}} sensori attivi</span>
-
                 </h4>
                 <div *ngFor="let sensor of machine.sensors" style="margin: 5px;">
                   <div>
@@ -45,10 +40,8 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
-
             </div>
           </div>
         </div>
