@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modal-logout',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalLogoutComponent implements OnInit {
 
-  constructor() { }
+  @Input() showModal = false;
+  @ViewChild('closeBtn') closeBtn: ElementRef;
 
-
-  refresh(): void {
-    window.location.reload();
+  constructor(private router: Router) {
   }
+
+  logout() {
+    this.showModal = this.showModal !== true;
+    this.router.navigate(['/logout']);
+  }
+
   ngOnInit() {
   }
 

@@ -22,7 +22,8 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/material-design-icons/iconfont/material-icons.css",
-        "styles.css"
+        "styles.css",
+        "animate.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",

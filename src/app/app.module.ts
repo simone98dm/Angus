@@ -1,11 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-
 import {AppComponent} from './app.component';
 import {SettingComponent} from './page/setting/setting/setting.component';
 import {ListComponent} from './page/list/list/list.component';
-import {GraphComponent} from './page/graph/graph/graph.component';
+import {BarChartComponent} from './page/graph/bar-chart/bar-chart.component';
 import {NavbarComponent} from './page/shared/navbar/navbar.component';
 import {FooterComponent} from './page/shared/footer/footer.component';
 import {PageNotFoundComponent} from './page/shared/page-not-found/page-not-found.component';
@@ -42,7 +41,7 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     AppComponent,
     SettingComponent,
     ListComponent,
-    GraphComponent,
+    BarChartComponent,
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
