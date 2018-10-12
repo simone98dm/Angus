@@ -78,7 +78,7 @@ This project can be run in linux server.
   (follow the steps)
 ```
 
-To run the webapp in local network, you must have to specify the host (```0.0.0.0```)🐱‍💻, as we use port ```80``` the script must be runned as ```root``` (N.B: disable ```apache2``` service) at least with ```disable-host-check``` we allow to get access to the webapp by disabling some checks 👍
+To run the webapp in local network, you must have to specify the host (```0.0.0.0```), as we use port ```80``` the script must be runned as ```root``` (N.B: disable ```apache2``` service) at least with ```disable-host-check``` we allow to get access to the webapp by disabling some checks 
 ```bash
 sudo ng serve --host 0.0.0.0 --port 80 --disable-host-check
 ```
@@ -90,7 +90,7 @@ To get a better look you may add this line to ```hosts``` file in ```/etc/networ
 ```
 
 ---
-### Gource✨hacker
+### Gource✨
 View the progress of the project by [Gource](https://gource.io/)
 ```bash
 ~$ cd Angus/
@@ -98,3 +98,8 @@ View the progress of the project by [Gource](https://gource.io/)
 or
 ~$ gource -f -s 1 -a 1 --key --max-files 0 --disable-progress
 ```
+
+### Repository contributors:
+(Andrea Salata)[https://github.com/salatandre]: UX & UI developer (html, css, ts)
+(Sebastiano Emy Jari Baldin)[https://github.com/sebejbaldin]: Back-end developer (nodejs, ts)
+(Simone Dal Mas)[http://github.com/simone98dm/]: Front-end developer (angular2, nodejs)
