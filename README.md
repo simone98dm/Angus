@@ -108,3 +108,8 @@ or
 
 [Simone Dal Mas](http://github.com/simone98dm) : Front-end developer (angular2, nodejs).
 
+(unregistered team member)
+
+[Andrea Babuin](https://github.com/anbabuin): Influx, DB manager
+
+[Alessandro Bravo](https://github.com/AlessandroBravo): Influx, DB admin
