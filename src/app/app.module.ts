@@ -32,8 +32,8 @@ import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.comp
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
-export const authenticationApiUrl = 'http://localhost:8081/api/auth/login';
-export const userApiUrl = 'http://localhost:8081/api/auth/user';
+export const authenticationApiUrl = 'http://10.10.10.1:8081/api/auth/login';
+export const userApiUrl = 'http://10.10.10.1:8081/api/auth/user';
 export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
 
 @NgModule({

@@ -33,6 +33,7 @@ export class AuthenticationService {
   logout(): void {
     this.archive.removeToken();
     this.archive.removeUser();
+    this.archive.removeRole();
   }
 
   public isAuthenticated(): boolean {
