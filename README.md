@@ -100,9 +100,9 @@ or
 ```
 
 ### Repository contributors:
-(Andrea Salata)[https://github.com/salatandre] : UX & UI developer (html, css, ts).
+[Andrea Salata](https://github.com/salatandre) : UX & UI developer (html, css, ts).
 
-(Sebastiano Emy Jari Baldin)[https://github.com/sebejbaldin] : Back-end developer (nodejs, ts).
+[Sebastiano Emy Jari Baldin](https://github.com/sebejbaldin) : Back-end developer (nodejs, ts).
 
-(Simone Dal Mas)[http://github.com/simone98dm] : Front-end developer (angular2, nodejs).
+[Simone Dal Mas](http://github.com/simone98dm) : Front-end developer (angular2, nodejs).
 
