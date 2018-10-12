@@ -99,6 +99,8 @@ or
 ~$ gource -f -s 1 -a 1 --key --max-files 0 --disable-progress
 ```
 
+---
+
 ### Repository contributors:
 [Andrea Salata](https://github.com/salatandre) : UX & UI developer (html, css, ts).
 
