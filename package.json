@@ -38,7 +38,7 @@
     "moment": "^2.22.2",
     "mysql": "^2.16.0",
     "ng-socket-io": "^0.2.4",
-    "ng2-charts": "^1.6.0",
+    "ng2-google-charts": "^3.4.0",
     "rxjs": "^5.5.11",
     "rxjs-compat": "^6.2.2",
     "socket.io": "^2.1.1",

@@ -14,7 +14,7 @@ import {LogoutComponent} from './authentication/logout/logout.component';
 import {GuardComponent} from './authentication/guard/guard.component';
 import {DashboardComponent} from './page/dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ChartsModule} from 'ng2-charts';
+import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
 import {SocketIoModule} from 'ng-socket-io';
@@ -63,7 +63,7 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
     SocketIoModule.forRoot(sebaSocketIO),
     HttpClientModule,
     AppRoutingService,
-    ChartsModule,
+    Ng2GoogleChartsModule,
     FormsModule
   ],
   providers: [
