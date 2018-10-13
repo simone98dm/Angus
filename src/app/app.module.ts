@@ -17,7 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
-import {SocketIoModule} from 'ng-socket-io';
+import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
 import {SummaryCardComponent} from './page/summary-card/summary-card.component';
 import {CardComponent} from './page/card/card.component';
 import {ArchiveService} from './services/archive.service';
@@ -34,7 +34,7 @@ import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.comp
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
 export const authenticationApiUrl = 'http://10.10.10.1:8081/api/auth/login';
 export const userApiUrl = 'http://10.10.10.1:8081/api/auth/user';
-export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
+const SocketIOConf: SocketIoConfig = {url: 'http://192.168.101.90:8081'};
 
 @NgModule({
   declarations: [
@@ -60,7 +60,7 @@ export const sebaSocketIO = {url: 'http://192.168.101.90:8081'};
   ],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot(sebaSocketIO),
+    SocketIoModule.forRoot(SocketIOConf),
     HttpClientModule,
     AppRoutingService,
     Ng2GoogleChartsModule,
