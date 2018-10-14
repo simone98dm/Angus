@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {RetriveChartService} from '../../../services/retrive-chart.service'
+import {RetriveChartService} from '../../../services/retrive-chart.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -13,7 +13,8 @@ export class BarChartComponent implements OnInit {
     chartType: 'ColumnChart',
     dataTable: [],
     options: {
-      title: 'Instant Energy Drain'
+      title: 'Somma Consumi Elettrici',
+      height: 623
     }
   };
   constructor(private chart_sock: RetriveChartService) {
@@ -25,7 +26,7 @@ export class BarChartComponent implements OnInit {
     .subscribe((data: any[]) => {
       this.barChartData = Object.create(this.barChartData);
       this.barChartData.dataTable.length = 0;
-      this.barChartData.dataTable.push(['Components', 'Instant']);
+      this.barChartData.dataTable.push(['Components', 'Attuale']);
       data.forEach(x => {
         this.barChartData.dataTable.push([x.machine_name, x.value]);
       });

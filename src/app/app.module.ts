@@ -17,7 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
-import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
+import {SocketIoConfig, SocketIoModule} from 'ng-socket-io';
 import {SummaryCardComponent} from './page/summary-card/summary-card.component';
 import {CardComponent} from './page/card/card.component';
 import {ArchiveService} from './services/archive.service';
@@ -29,6 +29,7 @@ import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.component';
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
+import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
@@ -57,6 +58,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     AreaComponent,
     ProgressMaskComponent,
     ModalLogoutComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,

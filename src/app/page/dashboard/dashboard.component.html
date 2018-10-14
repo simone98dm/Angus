@@ -14,15 +14,37 @@
 
 
       <!-- 1 = Supervisore-->
-      <div class="row" *ngIf="loggedUser.grade == 1">
-        <div class="col-lg-8 col-md-12 ">
-          <div class="row">
-            <div class="col-12">
+      <div *ngIf="loggedUser.grade == 1">
+        <div class="row sup">
+          <div class="col">
+            <div class="card shadow cardcss ">
               <app-bar-chart></app-bar-chart>
             </div>
           </div>
+          <div class="col">
+            <div class="card shadow cardcss ">
+              <app-bar-chart></app-bar-chart>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow cardcss ">
+              <app-bar-chart></app-bar-chart>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow cardcss ">
+              <app-pie-chart></app-pie-chart>
+            </div>
+
+            <div class="card shadow cardcss ">
+              <app-pie-chart></app-pie-chart>
+            </div>
+
+          </div>
         </div>
       </div>
+
 
       <!-- 2 = Manutentore-->
       <div *ngIf="loggedUser.grade == 2">
@@ -90,12 +112,12 @@
                       <h4 class="card-text">
                         <span class="badge badge-danger">Max 99</span>
                       </h4>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
 
         <div class="row">
@@ -199,8 +221,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
-
-
   </div>
 </div>
