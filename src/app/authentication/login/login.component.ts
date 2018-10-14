@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
   loading = false;
-  error = 'Accedi con le tue credenziali :)';
+  error = 'Accedi con le tue credenziali';
   style = 'alert alert-info animated swing';
 
   constructor(
@@ -64,14 +64,14 @@ export class LoginComponent implements OnInit {
               }
             });
           } else {
-            this.error = 'Username or password is incorrect :| ';
+            this.error = 'Username o password non corretti ';
             this.style = 'alert alert-warning  animated shake';
             this.loading = false;
           }
         },
         (error1) => {
           console.log(error1);
-          this.error = 'Internal error :(';
+          this.error = 'Errore interno';
           this.style = 'alert alert-danger  animated shake';
           this.loading = false;
         });

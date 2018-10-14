@@ -1,4 +1,9 @@
 <app-navbar></app-navbar>
+<!-- 0 = Root-->
+<!-- 1 = Supervisore-->
+<!-- 2 = Manutentore-->
+<!-- 3 = User-->
+
 
 <div class="wrapper">
   <nav id="sidebar">
@@ -7,14 +12,9 @@
   <div id="content">
     <div class="container-fluid">
 
-      <div class="alert alert-success col-sm-4 animate-hide" role="alert">
-        Welcome back {{loggedUser.name}} {{loggedUser.surname}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
 
-      <div class="row">
+      <!-- 1 = Supervisore-->
+      <div class="row" *ngIf="loggedUser.grade == 1">
         <div class="col-lg-8 col-md-12 ">
           <div class="row">
             <div class="col-12">
@@ -22,11 +22,16 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="row">
-            <div class="col-12">
-              <div class="card shadow" *ngFor="let card of summaryCardItems"
-                   style="margin-bottom: 15px; margin-top: 38px">
+      </div>
+
+      <!-- 2 = Manutentore-->
+      <div *ngIf="loggedUser.grade == 2">
+        <div class="row">
+          <!--Prelavaggio-->
+          <div class="col-sm">
+            <div class="card shadow cardcss">
+              <h5 class="card-header">Prelavaggio</h5>
+              <div class="card shadow" *ngFor="let card of summaryCardItems">
                 <div class="card-body">
                   <p class="card-title">{{card.title}}</p>
                   <div class="row">
@@ -45,8 +50,157 @@
               </div>
             </div>
           </div>
+          <!--Lavaggio-->
+          <div class="col-sm">
+            <div class="card shadow cardcss">
+              <h5 class="card-header">Lavaggio</h5>
+              <div class="card shadow" *ngFor="let card of summaryCardItems">
+                <div class="card-body">
+                  <p class="card-title">{{card.title}}</p>
+                  <div class="row">
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-success">Min 12</span>
+                      </h4>
+                    </div>
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-danger">Max 99</span>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Asciugatura-->
+          <div class="col-sm">
+            <div class="card shadow cardcss">
+              <h5 class="card-header">Asciugatura</h5>
+              <div class="card shadow" *ngFor="let card of summaryCardItems">
+                <div class="card-body">
+                  <p class="card-title">{{card.title}}</p>
+                  <div class="row">
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-success">Min 12</span>
+                      </h4>
+                    </div>
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-danger">Max 99</span>
+                      </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm">
+            <div class="card shadow cardcss">
+              <h5 class="card-header">Pretrattamento</h5>
+              <div class="card shadow">
+                <div class="card-body">
+                  <p class="card-title">Vasca Pretrattamento</p>
+                  <div class="row">
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-danger">Max 99</span>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card shadow">
+                <div class="card-body">
+                  <p class="card-title">Vasca Primer</p>
+                  <div class="row">
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-danger">Max 99</span>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card shadow">
+                <div class="card-body">
+                  <p class="card-title">Vasca Finisher</p>
+                  <div class="row">
+                    <div class="col">
+                      <h4 class="card-text">
+                        <span class="badge badge-danger">Max 99</span>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="card shadow cardcss">
+              <h5 class="card-header">Stoccaggio</h5>
+              <div class="container">
+                <div class="row">
+
+                  <div class="col">
+                    <div class="card shadow cardcss">
+                      <h5 class="card-header">Motore 1</h5>
+                      <div class="card shadow" *ngFor="let card of summaryCardItems">
+                        <div class="card-body">
+                          <p class="card-title">{{card.title}}</p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Min 12</span>
+                              </h4>
+                            </div>
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-danger">Max 99</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow cardcss">
+                      <h5 class="card-header">Motore 2</h5>
+                      <div class="card shadow" *ngFor="let card of summaryCardItems">
+                        <div class="card-body">
+                          <p class="card-title">{{card.title}}</p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Min 12</span>
+                              </h4>
+                            </div>
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-danger">Max 99</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+
   </div>
 </div>

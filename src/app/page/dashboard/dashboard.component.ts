@@ -12,12 +12,10 @@ import {ProfileDTO} from '../../models/Profile';
 export class DashboardComponent implements OnInit {
 
   summaryCardItems: SummaryDTO[] = [
-    {title: 'Card1', text: 'Description1', value: '1234', icon: '', style: 'primary'},
-    {title: 'Card2', text: 'Description2', value: '4567', icon: '', style: 'danger'},
-    {title: 'Card3', text: 'Description3', value: '89', icon: '', style: 'success'},
-    {title: 'Card4', text: 'Description4', value: '85476', icon: '', style: 'warning'}
+    {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
+    {title: 'Numero Giri', text: 'Description2', value: '4567', icon: '', style: 'danger'},
+    {title: 'Livello massimo acqua', text: 'Description3', value: '89', icon: '', style: 'success'},
   ];
-
 
 
   loggedUser: ProfileDTO = this.archive.getProfile();

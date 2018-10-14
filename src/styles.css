@@ -25,7 +25,7 @@ body {
   display: flex;
   width: 100%;
   align-items: stretch;
-  background: url("assets/background.jpg") no-repeat;
+  background-color: #fafafa;
   background-size: cover;
 }
 
