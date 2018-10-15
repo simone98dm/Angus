@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   error = 'Accedi con le tue credenziali';
-  style = 'alert alert-info animated swing';
+  style = 'alert alert-info animated pulse';
 
   constructor(
     private router: Router,
@@ -64,15 +64,15 @@ export class LoginComponent implements OnInit {
               }
             });
           } else {
-            this.error = 'Username o password non corretti ';
-            this.style = 'alert alert-warning  animated shake';
+            this.error = 'Username or password is incorrect';
+            this.style = 'alert alert-warning animated shake';
             this.loading = false;
           }
         },
         (error1) => {
           console.log(error1);
-          this.error = 'Errore interno';
-          this.style = 'alert alert-danger  animated shake';
+          this.error = 'Internal error';
+          this.style = 'alert alert-danger animated shake';
           this.loading = false;
         });
   }

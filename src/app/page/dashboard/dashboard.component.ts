@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
+import {IFactoryStructure} from '../shared/sidebar/sidebar.component';
+import {RetriveDataService} from '../../services/retrive-data.service';
+
 import {RetriveChartService} from '../../services/retrive-chart.service';
 import {RefreshRateDTO} from '../../models/RefreshRate';
 
@@ -49,10 +52,13 @@ export class DashboardComponent implements OnInit {
 
   loggedUser: ProfileDTO = this.archive.getProfile();
 
-  constructor(private archive: ArchiveService, private socket: RetriveChartService) {
+  constructor(private archive: ArchiveService, private factory: RetriveDataService) {
   }
 
   ngOnInit() {
+    if (this.archive.getAreas() == null) {
+      this.updateAreas();
+    }
     this.socket.reclaimSupervisorHome();
     this.socket.getSupervisorHome()
       .subscribe((data: any) => {
@@ -77,4 +83,20 @@ export class DashboardComponent implements OnInit {
   setRefreshrate(refresh: number) {
     this.refreshRate = refresh;
   }
+
+  updateAreas(){
+    this.factory.getAreas()
+      .subscribe((response: IFactoryStructure) => {
+        let areaList = [];
+        for (let item of response.result) {
+          areaList.push({
+            id: item.pLineId,
+            name: item.pLineName
+          });
+        }
+
+        this.archive.setAreas(areaList);
+      });
+  }
+
 }

@@ -32,6 +32,11 @@ import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.comp
 import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
 import {GaugeChartComponent} from './page/graph/gauge-chart/gauge-chart.component';
 
+const api = {host: 'localhost', port: '8081'};
+export const authenticationApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/login';
+export const userApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/user';
+export const factoryStructApiUrl = 'http://' + api.host + ':' + api.port + '/api/factory';
+const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port + ''};
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
 export const authenticationApiUrl = 'http://localhost:8081/api/auth/login';
@@ -75,7 +80,8 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     GuardComponent,
     AuthenticationService,
     ProfileService,
-    RetriveChartService
+    RetriveChartService,
+    RetriveDataService
   ],
   bootstrap: [AppComponent]
 })
