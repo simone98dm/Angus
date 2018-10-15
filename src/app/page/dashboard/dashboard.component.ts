@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
 
   loggedUser: ProfileDTO = this.archive.getProfile();
 
-  constructor(private archive: ArchiveService, private factory: RetriveDataService) {
+  constructor(private archive: ArchiveService, private factory: RetriveDataService, private socket: RetriveChartService) {
   }
 
   ngOnInit() {
