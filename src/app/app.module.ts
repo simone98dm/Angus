@@ -30,6 +30,8 @@ import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.component';
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
 import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {DlDateTimePickerDateModule} from 'angular-bootstrap-datetimepicker';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
@@ -66,7 +68,9 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     HttpClientModule,
     AppRoutingService,
     Ng2GoogleChartsModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot(),
+    DlDateTimePickerDateModule
   ],
   providers: [
     ArchiveService,
