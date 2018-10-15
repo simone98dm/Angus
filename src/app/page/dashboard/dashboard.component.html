@@ -18,17 +18,17 @@
         <div class="row sup">
           <div class="col">
             <div class="card shadow cardcss ">
-              <google-chart [data]="energySummaryChart"></google-chart>
+              <google-chart #energy [data]="energySummaryChart"></google-chart>
             </div>
           </div>
           <div class="col">
             <div class="card shadow cardcss ">
-              <google-chart [data]="waterSummaryChart"></google-chart>             
+              <google-chart #water [data]="waterSummaryChart"></google-chart>             
             </div>
           </div>
           <div class="col">
             <div class="card shadow cardcss ">
-              <google-chart [data]="uptimeSummaryChart"></google-chart>              
+              <google-chart #uptime [data]="uptimeSummaryChart"></google-chart>              
             </div>
           </div>
 
