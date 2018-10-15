@@ -24,9 +24,6 @@ export class AuthenticationService {
           return false;
         }
         return false;
-      }).catch((err) => {
-        console.log(err);
-        return Observable.throw(err);
       });
   }
 
@@ -38,11 +35,6 @@ export class AuthenticationService {
   }
 
   public isAuthenticated(): boolean {
-    /*
-    tokenNotExpired(this.archive.getLocalStorageTokenKey(), this.archive.getToken()) &&
-    this other kind of check is commented because allow foreign user to get the location of the token
-    in localstorage, this is a little sec flow
-     */
     return this.archive.getToken() != null &&
       !this.jwtHelper.isTokenExpired(this.archive.getToken());
   }
