@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
     this.updateAreas();
   }
 
-  updateAreas(){
+  updateAreas() {
     this.factory.getAreas()
       .subscribe((response: IFactoryStructure) => {
         this.areaList = [];
