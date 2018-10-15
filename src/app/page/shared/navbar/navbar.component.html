@@ -5,25 +5,11 @@
   <ul class="navbar-nav mr-auto">
   </ul>
 
-  <div>
-    <div class="options btn-group">
-      <div class="dropdown">
-        <a class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons" style="color: #CFD8DC">
-            timer
-          </i>
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Istantaneo</a>
-          <a class="dropdown-item" href="#">1 Min</a>
-          <a class="dropdown-item" href="#">1 Ora</a>
-          <a class="dropdown-item" href="#">1 Giorno</a>
-          <a class="dropdown-item" href="#">1 Sett</a>
-          <a class="dropdown-item" href="#">1 Mese</a>
-          <a class="dropdown-item" href="#">1 anno</a>
-        </div>
-      </div>
-    </div>
+  <div style="margin-right: 30px">
+    <select class="form-control" (change)="print($event.target)"
+            style="background-color: #384f64; color:white; display: block;">
+      <option *ngFor="let refresh of refreshOptions" [value]="refresh.id">{{refresh.name}}</option>
+    </select>
   </div>
 
 
