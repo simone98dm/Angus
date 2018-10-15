@@ -17,12 +17,13 @@ export class SidebarComponent implements OnInit {
   constructor(private user: ProfileService,
               public archive: ArchiveService,
               private factory: RetriveDataService) {
-
+    this.updateAreas();
   }
 
   updateAreas(){
     this.factory.getAreas()
       .subscribe((response: IFactoryStructure) => {
+        this.areaList = [];
         for (let item of response.result) {
           this.areaList.push({
             id: item.pLineId,

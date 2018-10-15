@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {RetriveChartService} from '../../../services/retrive-chart.service'
+import {RetriveChartService} from '../../../services/retrive-chart.service';
 
 @Component({
   selector: 'app-bar-chart',

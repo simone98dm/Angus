@@ -5,41 +5,38 @@
     <app-sidebar></app-sidebar>
   </nav>
   <div id="content">
-    <div class="container-fluid">
+    <div class="alert alert-success col-sm-4 animate-hide" role="alert">
+      Welcome back {{loggedUser.name}} {{loggedUser.surname}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="row">
 
-      <div class="alert alert-success col-sm-4 animate-hide" role="alert">
-        Welcome back {{loggedUser.name}} {{loggedUser.surname}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-8 col-md-12 ">
-          <div class="row">
-            <div class="col-12">
-              <app-bar-chart></app-bar-chart>
-            </div>
+      <div class="col-lg-8 col-md-12 ">
+        <div class="row">
+          <div class="col-12">
+            <app-bar-chart></app-bar-chart>
           </div>
         </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="row">
-            <div class="col-12">
-              <div class="card shadow" *ngFor="let card of summaryCardItems"
-                   style="margin-bottom: 15px; margin-top: 38px">
-                <div class="card-body">
-                  <p class="card-title">{{card.title}}</p>
-                  <div class="row">
-                    <div class="col">
-                      <h4 class="card-text">
-                        <span class="badge badge-success">Min 12</span>
-                      </h4>
-                    </div>
-                    <div class="col">
-                      <h4 class="card-text">
-                        <span class="badge badge-danger">Max 99</span>
-                      </h4>
-                    </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="row">
+          <div class="col-12">
+            <div class="card shadow" *ngFor="let card of summaryCardItems"
+                 style="margin-bottom: 15px; margin-top: 38px">
+              <div class="card-body">
+                <p class="card-title">{{card.title}}</p>
+                <div class="row">
+                  <div class="col">
+                    <h4 class="card-text">
+                      <span class="badge badge-success">Min 12</span>
+                    </h4>
+                  </div>
+                  <div class="col">
+                    <h4 class="card-text">
+                      <span class="badge badge-danger">Max 99</span>
+                    </h4>
                   </div>
                 </div>
               </div>

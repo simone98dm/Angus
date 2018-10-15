@@ -31,12 +31,12 @@ import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.c
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
 import {RetriveDataService} from './services/retrive-data.service';
 
+const api = {host: 'localhost', port: '8081'};
+export const authenticationApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/login';
+export const userApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/user';
+export const factoryStructApiUrl = 'http://' + api.host + ':' + api.port + '/api/factory';
+const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port + ''};
 
-// export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
-export const authenticationApiUrl = 'http://localhost:8081/api/auth/login';
-export const userApiUrl = 'http://localhost:8081/api/auth/user';
-export const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
-export const factoryStructApiUrl = 'http://localhost:8081/api/factory';
 
 @NgModule({
   declarations: [
