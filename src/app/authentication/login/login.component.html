@@ -1,6 +1,8 @@
 <div class="card card-container shadow">
-  <img id="profile-img" class="profile-img-card rounded-circle"
-       src="https://cdn.shopify.com/s/files/1/0537/1501/products/Pied_Piper_Square_1024x1024.jpg"/>
+  <a routerLink="/home">
+    <img id="profile-img" class="profile-img-card rounded-circle shadow"
+         src="https://cdn.shopify.com/s/files/1/0537/1501/products/Pied_Piper_Square_1024x1024.jpg"/>
+  </a>
   <p id="profile-name" class="profile-name-card"></p>
   <div [class]="style">
     {{error}}

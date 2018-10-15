@@ -17,7 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
-import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
+import {SocketIoConfig, SocketIoModule} from 'ng-socket-io';
 import {SummaryCardComponent} from './page/summary-card/summary-card.component';
 import {CardComponent} from './page/card/card.component';
 import {ArchiveService} from './services/archive.service';
@@ -29,12 +29,14 @@ import {HomeComponent} from './page/home/home.component';
 import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.component';
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
+import {RetriveDataService} from './services/retrive-data.service';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
 export const authenticationApiUrl = 'http://localhost:8081/api/auth/login';
 export const userApiUrl = 'http://localhost:8081/api/auth/user';
-const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
+export const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
+export const factoryStructApiUrl = 'http://localhost:8081/api/factory';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     GuardComponent,
     AuthenticationService,
     ProfileService,
-    RetriveChartService
+    RetriveChartService,
+    RetriveDataService
   ],
   bootstrap: [AppComponent]
 })
