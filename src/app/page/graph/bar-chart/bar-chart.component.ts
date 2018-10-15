@@ -14,7 +14,6 @@ export class BarChartComponent implements OnInit {
     dataTable: [],
     options: {
       title: 'Somma Consumi Elettrici',
-      height: 623
     }
   };
   constructor(private chart_sock: RetriveChartService) {

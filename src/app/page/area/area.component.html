@@ -5,74 +5,322 @@
   </nav>
   <div id="content">
     <div class="container-fluid">
-      <!-- summary cards -->
-      <!--<div class="col">-->
-      <!--<div *ngFor="let component of area">-->
-      <!--<div *ngIf="component.idArea == this.idArea">-->
-      <!--<div *ngFor="let machine of component.machines" style="margin: 15px;">-->
-      <!--<div class="card card-body">-->
-      <!--<h4 class="card-title">-->
-      <!--{{machine.name}}<span style="margin-left: 15px" class="badge badge-secondary">{{machine.sensors.length}} sensori attivi</span>-->
-      <!--</h4>-->
-      <!--<div *ngFor="let sensor of machine.sensors" style="margin: 5px;">-->
-      <!--<div>-->
-      <!--<p>-->
-      <!--{{sensor.name}}-->
-      <!--</p>-->
-      <!--<div class="row">-->
-      <!--<div class="col">-->
-      <!--<table class="table table-striped table-sm" style="width: 100%;">-->
-      <!--<thead>-->
-      <!--<tr>-->
-      <!--<th>#</th>-->
-      <!--<th>code</th>-->
-      <!--<th>name</th>-->
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-      <!--<tr>-->
-      <!--<td>{{sensor.id}}</td>-->
-      <!--<td>machine {{machine.code}}</td>-->
-      <!--<td>{{sensor.name}}</td>-->
-      <!--</tr>-->
-      <!--</tbody>-->
-      <!--</table>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
       <div class="row">
+        <!-- summary cards -->
+        <!--<div class="col">-->
+        <!--<div *ngFor="let component of area">-->
+        <!--<div *ngIf="component.idArea == this.idArea">-->
+        <!--<div *ngFor="let machine of component.machines" style="margin: 15px;">-->
+        <!--<div class="card card-body">-->
+        <!--<h4 class="card-title">-->
+        <!--{{machine.name}}<span style="margin-left: 15px" class="badge badge-secondary">{{machine.sensors.length}} sensori attivi</span>-->
+        <!--</h4>-->
+        <!--<div *ngFor="let sensor of machine.sensors" style="margin: 5px;">-->
+        <!--<div>-->
+        <!--<p>-->
+        <!--{{sensor.name}}-->
+        <!--</p>-->
+        <!--<div class="row">-->
+        <!--<div class="col">-->
+        <!--<table class="table table-striped table-sm" style="width: 100%;">-->
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<th>#</th>-->
+        <!--<th>code</th>-->
+        <!--<th>name</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+        <!--<td>{{sensor.id}}</td>-->
+        <!--<td>machine {{machine.code}}</td>-->
+        <!--<td>{{sensor.name}}</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+        <!--</table>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
         <div class="col-sm">
-          <div class="col">
-            <div class="card shadow cardcss ">
-              <app-bar-chart></app-bar-chart>
-              <app-gauge-chart></app-gauge-chart>
+          <div class="card shadow cardcss">
+            <h5 class="card-header">Prelavaggio
+              <button type="button" class="btn btn-info col-4 offset-8">Dettagli</button>
+            </h5>
+            <div class="container-fluid">
+              <div class="card cardcss">
+                <div class="row">
+                  <div class="col">
+                    <app-pie-chart></app-pie-chart>
+                  </div>
+                  <div class="col">
+                    <div class="card cardcss">
+                      <h5 class="card-header">Media Consumo Elettrico</h5>
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-title"></p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Valore</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card cardcss">
+                      <h5 class="card-header">Uptime</h5>
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-title"></p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Valore</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card cardcss">
+                    <app-bar-chart></app-bar-chart>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card cardcss">
+                    <h5 class="card-header">Valore min/max livello acqua</h5>
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title"></p>
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-success">Min 12</span>
+                            </h4>
+                          </div>
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-danger">Max 99</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card cardcss">
+                    <h5 class="card-header">Contatore Acqua</h5>
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title"></p>
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-success">Valore</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-sm">
-          <div class="col">
-            <div class="card shadow cardcss ">
-              <app-bar-chart></app-bar-chart>
+          <div class="card shadow cardcss">
+            <h5 class="card-header">Lavaggio
+              <button type="button" class="btn btn-info col-4 offset-8">Dettagli</button>
+            </h5>
+            <div class="container-fluid">
+              <div class="card cardcss">
+                <div class="row">
+                  <div class="col">
+                    <app-pie-chart></app-pie-chart>
+                  </div>
+                  <div class="col">
+                    <div class="card cardcss">
+                      <h5 class="card-header">Media Consumo Elettrico</h5>
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-title"></p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Valore</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card cardcss">
+                      <h5 class="card-header">Uptime</h5>
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-title"></p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Valore</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card cardcss">
+                    <app-bar-chart></app-bar-chart>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card cardcss">
+                    <h5 class="card-header">Valore min/max livello acqua</h5>
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title"></p>
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-success">Min 12</span>
+                            </h4>
+                          </div>
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-danger">Max 99</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card cardcss">
+                    <h5 class="card-header">Contatore Acqua</h5>
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title"></p>
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-success">Valore</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-sm">
-          <div class="col">
-            <div class="card shadow cardcss ">
-              <app-bar-chart></app-bar-chart>
+          <div class="card shadow cardcss">
+            <h5 class="card-header">Asciugatura
+              <button type="button" class="btn btn-info col-4 offset-8">Dettagli</button>
+            </h5>
+            <div class="container-fluid">
+              <div class="card cardcss">
+                <div class="row">
+                  <div class="col">
+                    <app-pie-chart></app-pie-chart>
+                  </div>
+                  <div class="col">
+                    <div class="card cardcss">
+                      <h5 class="card-header">Media Consumo Elettrico</h5>
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-title"></p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Valore</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card cardcss">
+                      <h5 class="card-header">Uptime</h5>
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-title"></p>
+                          <div class="row">
+                            <div class="col">
+                              <h4 class="card-text">
+                                <span class="badge badge-success">Valore</span>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card cardcss">
+                    <app-bar-chart></app-bar-chart>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card cardcss">
+                    <h5 class="card-header">% Umidità</h5>
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title"></p>
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-success">Valore</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card cardcss">
+                    <h5 class="card-header">Contatore Acqua</h5>
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title"></p>
+                        <div class="row">
+                          <div class="col">
+                            <h4 class="card-text">
+                              <span class="badge badge-success">Valore</span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+
       </div>
-
     </div>
-
-
   </div>
 </div>
