@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {ProfileDTO} from '../../models/Profile';
 import {ArchiveService} from '../../services/archive.service';
-import {Observable} from 'rxjs/Observable';
-import {AreaDTO} from '../../models/Area';
 import {RetriveDataService} from '../../services/retrive-data.service';
 
 @Component({
@@ -128,7 +126,9 @@ export class AreaComponent implements OnInit {
       .subscribe((response: IFactoryStructure) => {
         if (response) {
           for (let item in response.result) {
-            this.area.push({});
+            this.area.push({
+              // add here structure
+            });
           }
         }
       });
