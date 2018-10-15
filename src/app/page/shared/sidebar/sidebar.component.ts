@@ -22,6 +22,15 @@ export class SidebarComponent implements OnInit {
 
   }
 
+  constructor(private user: ProfileService, public archive: ArchiveService) {
+    this.areaList = [
+      {id: 1, name: ''},
+      {id: 2, name: 'Pretrattamento'},
+      {id: 3, name: 'Stoccaggio'}
+    ];
+
+  }
+
 
   ngOnInit() {
     this.grade = this.archive.getRole();

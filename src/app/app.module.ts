@@ -30,6 +30,7 @@ import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.component';
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
 import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
+import {GaugeChartComponent} from './page/graph/gauge-chart/gauge-chart.component';
 
 
 // export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
@@ -59,6 +60,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     ProgressMaskComponent,
     ModalLogoutComponent,
     PieChartComponent,
+    GaugeChartComponent,
   ],
   imports: [
     BrowserModule,
