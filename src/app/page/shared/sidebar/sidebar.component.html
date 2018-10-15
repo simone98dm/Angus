@@ -17,7 +17,7 @@
 
   <!-- list of all machine -->
   <li [routerLinkActive]="['active']">
-    <a data-toggle="collapse"  aria-labelledby="headingOne">
+    <a data-toggle="collapse" (click)="updateAreas()"  aria-labelledby="headingOne">
       <i class="material-icons">
         list
       </i>

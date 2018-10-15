@@ -34,6 +34,7 @@ export class AuthenticationService {
     this.archive.removeToken();
     this.archive.removeUser();
     this.archive.removeRole();
+    this.archive.removeAreas();
   }
 
   public isAuthenticated(): boolean {

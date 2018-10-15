@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
+import {IFactoryStructure} from '../shared/sidebar/sidebar.component';
+import {RetriveDataService} from '../../services/retrive-data.service';
 
 
 @Component({
@@ -11,20 +13,30 @@ import {ProfileDTO} from '../../models/Profile';
 })
 export class DashboardComponent implements OnInit {
 
-  summaryCardItems: SummaryDTO[] = [
-    {title: 'Card1', text: 'Description1', value: '1234', icon: '', style: 'primary'},
-    {title: 'Card2', text: 'Description2', value: '4567', icon: '', style: 'danger'},
-    {title: 'Card3', text: 'Description3', value: '89', icon: '', style: 'success'},
-    {title: 'Card4', text: 'Description4', value: '85476', icon: '', style: 'warning'}
-  ];
-
-
-
   loggedUser: ProfileDTO = this.archive.getProfile();
 
-  constructor(private archive: ArchiveService) {
+  constructor(private archive: ArchiveService, private factory: RetriveDataService) {
   }
 
   ngOnInit() {
+    if (this.archive.getAreas() == null) {
+      this.updateAreas();
+    }
   }
+
+  updateAreas(){
+    this.factory.getAreas()
+      .subscribe((response: IFactoryStructure) => {
+        let areaList = [];
+        for (let item of response.result) {
+          areaList.push({
+            id: item.pLineId,
+            name: item.pLineName
+          });
+        }
+
+        this.archive.setAreas(areaList);
+      });
+  }
+
 }

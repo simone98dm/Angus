@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProfileService} from '../../../authentication/profile.service';
 import {ProfileDTO} from '../../../models/Profile';
 import {ArchiveService} from '../../../services/archive.service';
+import {RetriveDataService} from '../../../services/retrive-data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,21 +12,40 @@ import {ArchiveService} from '../../../services/archive.service';
 export class SidebarComponent implements OnInit {
   public areaList = [];
   public grade: string;
-  private loggedUser: ProfileDTO;
+  public loggedUser: ProfileDTO;
 
-  constructor(private user: ProfileService, public archive: ArchiveService) {
-    this.areaList = [
-      {id: 1, name: 'Lavaggio'},
-      {id: 2, name: 'Pretrattamento'},
-      {id: 3, name: 'Stoccaggio'}
-    ];
+  constructor(private user: ProfileService,
+              public archive: ArchiveService,
+              private factory: RetriveDataService) {
 
+  }
+
+  updateAreas(){
+    this.factory.getAreas()
+      .subscribe((response: IFactoryStructure) => {
+        for (let item of response.result) {
+          this.areaList.push({
+            id: item.pLineId,
+            name: item.pLineName
+          });
+        }
+      });
   }
 
 
   ngOnInit() {
     this.grade = this.archive.getRole();
     this.loggedUser = this.archive.getProfile();
+    this.areaList = this.archive.getAreas();
   }
 
+}
+
+export interface IFactoryStructure {
+  result: IArea[];
+}
+
+export interface IArea {
+  pLineId: number,
+  pLineName: string
 }

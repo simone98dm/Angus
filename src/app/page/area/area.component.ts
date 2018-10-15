@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {ProfileDTO} from '../../models/Profile';
 import {ArchiveService} from '../../services/archive.service';
+import {Observable} from 'rxjs/Observable';
+import {AreaDTO} from '../../models/Area';
+import {RetriveDataService} from '../../services/retrive-data.service';
 
 @Component({
   selector: 'app-area',
@@ -10,13 +13,11 @@ import {ArchiveService} from '../../services/archive.service';
 })
 export class AreaComponent implements OnInit {
   public idArea: number;
-  public area;
   public userLogged: ProfileDTO = null;
-
-
-  constructor(private activatedRoute: ActivatedRoute, public archive: ArchiveService) {
-    this.area = [
-      {
+  private areaList;
+  public area;
+  /*
+  {
         idArea: 1,
         machines: [
           {
@@ -111,15 +112,40 @@ export class AreaComponent implements OnInit {
           }
         ]
       }
-    ];
+   */
 
+
+  constructor(private activatedRoute: ActivatedRoute, public archive: ArchiveService, private factory: RetriveDataService) {
     this.userLogged = this.archive.getProfile();
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.idArea = params['id'];
-    });
+    this.activatedRoute.params
+      .subscribe((params: Params) => {
+        this.idArea = params['id'];
+      });
+    this.factory.getArea(this.idArea)
+      .subscribe((response: IFactoryStructure) => {
+        if (response) {
+          for (let item in response.result) {
+            this.area.push({});
+          }
+        }
+      });
   }
 }
 
+
+export interface IFactoryStructure {
+  result: IArea[];
+}
+
+export interface IArea {
+  pLineId: number,
+  pLineName: string,
+  mId: number,
+  mSector: string,
+  mName: string,
+  sId: number,
+  sType: string
+}
