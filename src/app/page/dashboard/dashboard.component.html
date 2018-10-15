@@ -10,9 +10,8 @@
     <app-sidebar></app-sidebar>
   </nav>
   <div id="content">
+
     <div class="container-fluid">
-
-
       <!-- 1 = Supervisore-->
       <div *ngIf="loggedUser.grade == 1">
         <div class="row sup">
@@ -167,13 +166,13 @@
           <div class="col-sm">
             <div class="card shadow cardcss">
               <h5 class="card-header">Stoccaggio</h5>
-              <div class="container">
+              <div class="container-fluid">
                 <div class="row">
 
                   <div class="col">
-                    <div class="card shadow cardcss">
+                    <div class="card cardcss">
                       <h5 class="card-header">Motore 1</h5>
-                      <div class="card shadow" *ngFor="let card of summaryCardItems">
+                      <div class="card" *ngFor="let card of summaryCardItems">
                         <div class="card-body">
                           <p class="card-title">{{card.title}}</p>
                           <div class="row">
@@ -193,9 +192,9 @@
                     </div>
                   </div>
                   <div class="col">
-                    <div class="card shadow cardcss">
+                    <div class="card cardcss">
                       <h5 class="card-header">Motore 2</h5>
-                      <div class="card shadow" *ngFor="let card of summaryCardItems">
+                      <div class="card" *ngFor="let card of summaryCardItems">
                         <div class="card-body">
                           <p class="card-title">{{card.title}}</p>
                           <div class="row">

@@ -2,26 +2,47 @@
      style="background-color: #293949;">
   <a class="navbar-brand" style="color: white"><h4>Angus</h4></a>
 
-    <ul class="navbar-nav mr-auto">
-    </ul>
+  <ul class="navbar-nav mr-auto">
+  </ul>
 
-  <a routerLink="/dashboard"  class="btn">
-    <i class="material-icons" style="color: white">
-      home
-    </i>
-  </a>
+  <div class="options btn-group">
+    <div class="dropdown">
+      <a class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="material-icons" style="color: #CFD8DC">
+          timer
+        </i>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Istantaneo</a>
+        <a class="dropdown-item" href="#">1 Min</a>
+        <a class="dropdown-item" href="#">1 Ora</a>
+        <a class="dropdown-item" href="#">1 Giorno</a>
+        <a class="dropdown-item" href="#">1 Sett</a>
+        <a class="dropdown-item" href="#">1 Mese</a>
+        <a class="dropdown-item" href="#">1 anno</a>
 
-    <a routerLink="/dashboard"  class="btn">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="navbuttons">
+    <a routerLink="/dashboard" class="btn">
+      <i class="material-icons" style="color: #FFFFFF">
+        home
+      </i>
+    </a>
+    <a routerLink="/dashboard" class="btn">
       <i class="material-icons" style="color: #009688" (click)="refresh()">
         autorenew
       </i>
     </a>
-
-  <a data-toggle="modal" data-target="#logoutmodal" class="btn">
-    <i class="material-icons" style="color: #ff4130">
-      settings_power
-    </i>
-  </a>
+    <a data-toggle="modal" data-target="#logoutmodal" class="btn">
+      <i class="material-icons" style="color: #ff4130">
+        settings_power
+      </i>
+    </a>
+  </div>
 
 </nav>
 
