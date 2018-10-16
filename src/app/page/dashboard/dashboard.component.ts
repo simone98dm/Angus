@@ -17,8 +17,7 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('energy') energyChart;
   @ViewChild('water') waterChart;
-  @ViewChild('uptime') uptimeChart;
-  refreshRate: RefreshRateDTO;
+  @ViewChild('uptime') uptimeChart;  
 
   summaryCardItems: SummaryDTO[] = [
     {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
@@ -41,6 +40,9 @@ export class DashboardComponent implements OnInit {
 
   refreshRate: string;
 
+  manutentor_data: any = {
+    
+  };
 
   energySummaryChart: any = {
     chartType: 'ColumnChart',
@@ -78,8 +80,6 @@ export class DashboardComponent implements OnInit {
     }
   };
 
-  loggedUser: ProfileDTO = this.archive.getProfile();
-
   constructor(private archive: ArchiveService, private factory: RetriveDataService, private socket: RetriveChartService) {
   }
 
@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
     if (this.archive.getAreas() == null) {
       this.updateAreas();
     }
-    this.socket.reclaimSupervisorHome();
+    this.socket.reclaimHomeData(this.archive.getProfile().grade);
     this.socket.getSupervisorHome()
     .subscribe((data: any) => {
       console.log(data);
@@ -108,6 +108,10 @@ export class DashboardComponent implements OnInit {
       this.uptimeSummaryChart.dataTable.push(['Uptime', 'Settimana',  'Attuale']);
       this.uptimeSummaryChart.dataTable.push(['Attività', data.uptime_Average, data.uptime_Instant]);
       this.uptimeChart.redraw();
+
+    });
+    this.socket.getManutentorHome()
+    .subscribe((data: any) => {
 
     });
   }
