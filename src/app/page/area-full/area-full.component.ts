@@ -19,4 +19,16 @@ export class AreaFullComponent implements OnInit {
     });
   }
 
+  trendSummaryChart: any = {
+    chartType: 'LineChart',
+    dataTable: [
+      ['Consumi Elettrici', 'Settimana', 'Attuale'],
+      ['Energia', 0, 0]
+    ],
+    options: {
+      title: 'Consumi Elettrici',
+      height: 623
+    }
+  };
+
 }
