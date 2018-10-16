@@ -8,7 +8,7 @@ import {RetriveDataService} from '../../services/retrive-data.service';
   styleUrls: ['./area-details.component.css']
 })
 export class AreaDetailsComponent implements OnInit {
-  parentRouteId: number;
+  parentRouteId;
   public area = [];
   private sub: any;
 
@@ -17,6 +17,8 @@ export class AreaDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.parentRouteId = this.route.snapshot.paramMap.get('id');
+    console.log(this.parentRouteId);
     /*
     this.factory.getArea(this.parentRouteId)
       .subscribe((response: IFactoryStructure) => {

@@ -11,6 +11,7 @@ import {LogoutComponent} from '../authentication/logout/logout.component';
 import {HomeComponent} from '../page/home/home.component';
 import {AreaComponent} from '../page/area/area.component';
 import {AreaDetailsComponent} from '../page/area-details/area-details.component';
+import {AreaFullComponent} from '../page/area-full/area-full.component';
 
 const routes: Routes = [
   // Auth paths
@@ -29,6 +30,7 @@ const routes: Routes = [
   // area route
   {
     path: 'area/:id', canActivate: [GuardComponent], component: AreaComponent, children: [
+      {path: '', canActivate: [GuardComponent], component: AreaFullComponent},
       {path: 'details', canActivate: [GuardComponent], component: AreaDetailsComponent}
     ]
   },

@@ -33,6 +33,7 @@ import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
 import {GaugeChartComponent} from './page/graph/gauge-chart/gauge-chart.component';
 import {RetriveDataService} from './services/retrive-data.service';
 import {AreaDetailsComponent} from './page/area-details/area-details.component';
+import {AreaFullComponent} from './page/area-full/area-full.component';
 
 // const api = {host: '10.10.10.1', port: '8081'};
 const api = {host: 'localhost', port: '8081'};
@@ -66,6 +67,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     PieChartComponent,
     GaugeChartComponent,
     AreaDetailsComponent,
+    AreaFullComponent,
   ],
   imports: [
     BrowserModule,
