@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 
 @Injectable()
-export class AreaServiceService {
+export class AreaRoleService {
+
   private _id: number;
   private _machine: number;
 

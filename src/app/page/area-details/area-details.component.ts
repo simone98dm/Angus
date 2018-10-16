@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RetriveDataService} from '../../services/retrive-data.service';
-import {AreaServiceService} from '../../services/area-service.service';
 
 @Component({
   selector: 'app-area-details',
