@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
@@ -6,7 +6,6 @@ import {IFactoryStructure} from '../shared/sidebar/sidebar.component';
 import {RetriveDataService} from '../../services/retrive-data.service';
 
 import {RetriveChartService} from '../../services/retrive-chart.service';
-import {RefreshRateDTO} from '../../models/RefreshRate';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,9 +17,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('energy') energyChart;
   @ViewChild('water') waterChart;
   @ViewChild('uptime') uptimeChart;
-  refreshRate: RefreshRateDTO;
-  @Input()
-  item: SummaryDTO;
+  refreshRate: number;
 
   summaryCardItems: SummaryDTO[] = [
     {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
@@ -36,10 +33,16 @@ export class DashboardComponent implements OnInit {
     {id: 4, name: '1 Sett'},
   ];
 
+  refreshRate: string;
+
+  manutentor_data: any = {
+    
+  };
+
   energySummaryChart: any = {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Consumi Elettrici', 'Settimana',  'Attuale'],
+      ['Consumi Elettrici', 'Settimana', 'Attuale'],
       ['Energia', 0, 0]
     ],
     options: {
@@ -51,7 +54,7 @@ export class DashboardComponent implements OnInit {
   waterSummaryChart: any = {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Consumi Acqua', 'Settimana',  'Attuale'],
+      ['Consumi Acqua', 'Settimana', 'Attuale'],
       ['Acqua', 0, 0]
     ],
     options: {
@@ -63,7 +66,7 @@ export class DashboardComponent implements OnInit {
   uptimeSummaryChart: any = {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Uptime', 'Settimana',  'Attuale'],
+      ['Uptime', 'Settimana', 'Attuale'],
       ['Attività', 0, 0]
     ],
     options: {
@@ -72,8 +75,6 @@ export class DashboardComponent implements OnInit {
     }
   };
 
-  loggedUser: ProfileDTO = this.archive.getProfile();
-
   constructor(private archive: ArchiveService, private factory: RetriveDataService, private socket: RetriveChartService) {
   }
 
@@ -81,7 +82,7 @@ export class DashboardComponent implements OnInit {
     if (this.archive.getAreas() == null) {
       this.updateAreas();
     }
-    this.socket.reclaimSupervisorHome();
+    this.socket.reclaimHomeData(this.archive.getProfile().grade);
     this.socket.getSupervisorHome()
     .subscribe((data: any) => {
       console.log(data);
@@ -104,13 +105,17 @@ export class DashboardComponent implements OnInit {
       this.uptimeChart.redraw();
 
     });
+    this.socket.getManutentorHome()
+    .subscribe((data: any) => {
+
+    });
   }
 
   setRefreshRate(refresh: number) {
     this.refreshRate = refresh;
   }
 
-  updateAreas(){
+  updateAreas() {
     this.factory.getAreas()
       .subscribe((response: IFactoryStructure) => {
         let areaList = [];
@@ -124,6 +129,5 @@ export class DashboardComponent implements OnInit {
         this.archive.setAreas(areaList);
       });
   }
-
 
 }
