@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RetriveDataService} from '../../services/retrive-data.service';
+import {AreaServiceService} from '../../services/area-service.service';
 
 @Component({
   selector: 'app-area-details',
@@ -9,17 +10,15 @@ import {RetriveDataService} from '../../services/retrive-data.service';
 })
 export class AreaDetailsComponent implements OnInit {
   paramId: number;
-  public area = [];
   private sub: any;
 
   constructor(private route: ActivatedRoute,
-              private factory: RetriveDataService) {
+              private factory: RetriveDataService, private area: AreaServiceService) {
+
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.paramId = params['id'];
-    });
+    this.paramId = this.area.getParam();
     /*
     this.factory.getArea(this.parentRouteId)
       .subscribe((response: IFactoryStructure) => {

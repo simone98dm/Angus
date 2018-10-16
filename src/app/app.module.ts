@@ -32,6 +32,7 @@ import {RetriveDataService} from './services/retrive-data.service';
 import {AreaDetailsComponent} from './page/area-details/area-details.component';
 import {AreaFullComponent} from './page/area-full/area-full.component';
 import {BaseComponent} from './page/base/base.component';
+import {AreaServiceService} from './services/area-service.service';
 
 const api = {host: 'localhost', port: '8081'};
 // const api = {host: 'localhost', port: '8081'};
@@ -71,7 +72,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     HttpClientModule,
     AppRoutingService,
     Ng2GoogleChartsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     ArchiveService,
@@ -79,7 +80,8 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     AuthenticationService,
     ProfileService,
     RetriveChartService,
-    RetriveDataService
+    RetriveDataService,
+    AreaServiceService
   ],
   bootstrap: [AppComponent]
 })

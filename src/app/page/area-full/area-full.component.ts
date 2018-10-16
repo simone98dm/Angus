@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ArchiveService} from '../../services/archive.service';
 import {ActivatedRoute} from '@angular/router';
+import {AreaServiceService} from '../../services/area-service.service';
 
 @Component({
   selector: 'app-area-full',
@@ -10,14 +11,20 @@ import {ActivatedRoute} from '@angular/router';
 export class AreaFullComponent implements OnInit {
   paramId: number;
 
-  constructor(private archive: ArchiveService, private route: ActivatedRoute) {
+
+  @Input()
+  areaId: number;
+
+  constructor(private route: ActivatedRoute, private archive: ArchiveService, private area: AreaServiceService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.paramId = params['id'];
+      this.area.setParam(this.paramId);
     });
   }
+
 
   trendSummaryChart: any = {
     chartType: 'LineChart',
