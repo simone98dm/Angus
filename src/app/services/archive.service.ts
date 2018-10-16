@@ -11,6 +11,7 @@ export class ArchiveService {
 
   // key for user role
   _USER_ROLE = 'roleUser';
+  private _AREAS_KEY = 'factoryAreas';
 
   constructor() {
   }
@@ -96,4 +97,27 @@ export class ArchiveService {
       return localStorage.removeItem(this._USER_ROLE);
     }
   }
+
+  /*--------------------------------------------------------------------------------------*/
+
+  /*--------------------------------------------------------------------------------------*/
+
+  setAreas(areas: any[]) {
+    localStorage.setItem(this._AREAS_KEY, JSON.stringify(areas));
+  }
+
+  getAreas() {
+    if (localStorage.getItem(this._AREAS_KEY)) {
+      return JSON.parse(localStorage.getItem(this._AREAS_KEY));
+    }
+    return null;
+  }
+
+  removeAreas() {
+    if (localStorage.getItem(this._AREAS_KEY)) {
+      return localStorage.removeItem(this._AREAS_KEY);
+    }
+  }
+
+
 }

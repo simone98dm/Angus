@@ -2,8 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
-import { RetriveChartService } from '../../services/retrive-chart.service';
+import {IFactoryStructure} from '../shared/sidebar/sidebar.component';
+import {RetriveDataService} from '../../services/retrive-data.service';
 
+import {RetriveChartService} from '../../services/retrive-chart.service';
+import {RefreshRateDTO} from '../../models/RefreshRate';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +18,8 @@ export class DashboardComponent implements OnInit {
   @ViewChild('energy') energyChart;
   @ViewChild('water') waterChart;
   @ViewChild('uptime') uptimeChart;
+  refreshRate: RefreshRateDTO;
+
   summaryCardItems: SummaryDTO[] = [
     {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
     {title: 'Numero Giri', text: 'Description2', value: '4567', icon: '', style: 'danger'},
@@ -31,7 +36,7 @@ export class DashboardComponent implements OnInit {
       title: 'Consumi Elettrici',
       height: 623
     }
-  }
+  };
 
   waterSummaryChart: any = {
     chartType: 'ColumnChart',
@@ -43,7 +48,7 @@ export class DashboardComponent implements OnInit {
       title: 'Consumi Acqua',
       height: 623
     }
-  }
+  };
 
   uptimeSummaryChart: any = {
     chartType: 'ColumnChart',
@@ -55,14 +60,17 @@ export class DashboardComponent implements OnInit {
       title: 'Uptime',
       height: 623
     }
-  }
+  };
 
   loggedUser: ProfileDTO = this.archive.getProfile();
 
-  constructor(private archive: ArchiveService, private socket: RetriveChartService) {
+  constructor(private archive: ArchiveService, private factory: RetriveDataService, private socket: RetriveChartService) {
   }
 
   ngOnInit() {
+    if (this.archive.getAreas() == null) {
+      this.updateAreas();
+    }
     this.socket.reclaimSupervisorHome();
     this.socket.getSupervisorHome()
     .subscribe((data: any) => {
@@ -87,4 +95,24 @@ export class DashboardComponent implements OnInit {
 
     });
   }
+
+  setRefreshrate(refresh: number) {
+    this.refreshRate = refresh;
+  }
+
+  updateAreas(){
+    this.factory.getAreas()
+      .subscribe((response: IFactoryStructure) => {
+        let areaList = [];
+        for (let item of response.result) {
+          areaList.push({
+            id: item.pLineId,
+            name: item.pLineName
+          });
+        }
+
+        this.archive.setAreas(areaList);
+      });
+  }
+
 }

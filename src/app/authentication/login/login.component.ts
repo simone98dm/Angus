@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   error = 'Accedi con le tue credenziali';
-  style = 'alert alert-info animated swing';
+  style = 'alert alert-info animated pulse';
 
   constructor(
     private router: Router,
@@ -54,26 +54,32 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (result) => {
           if (result === true) {
-            this.user.getUserDetails().subscribe((data: ProfileDTO) => {
-              this.archive.setProfile(data);
-              this.archive.setRole(this.getRoleFullnameFromLoggedUser(this.archive.getProfile()));
-              if (this.archive.getProfile() !== null) {
-                this.router.navigate(['/dashboard']);
-              } else {
-                this.router.navigate(['/login']);
-              }
-            });
+            this.user.getUserDetails()
+              .subscribe((data: ProfileDTO) => {
+                if (data) {
+                  this.archive.setProfile(data);
+                  this.archive.setRole(this.getRoleFullnameFromLoggedUser(this.archive.getProfile()));
+                  this.router.navigate(['/dashboard']);
+                } else {
+                  this.router.navigate(['/login']);
+                }
+              });
           } else {
-            this.error = 'Username o password non corretti ';
-            this.style = 'alert alert-warning  animated shake';
+            this.error = 'Mmmmm...something is strange, try later';
+            this.style = 'alert alert-danger animated shake';
             this.loading = false;
           }
         },
         (error1) => {
-          console.log(error1);
-          this.error = 'Errore interno';
-          this.style = 'alert alert-danger  animated shake';
-          this.loading = false;
+          if (error1.status == 401) {
+            this.error = 'Wrong username or password';
+            this.style = 'alert alert-warning animated shake';
+            this.loading = false;
+          } else {
+            this.error = 'Internal error';
+            this.style = 'alert alert-danger animated shake';
+            this.loading = false;
+          }
         });
   }
 }

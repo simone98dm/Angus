@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {ProfileDTO} from '../../models/Profile';
 import {ArchiveService} from '../../services/archive.service';
+import {RetriveDataService} from '../../services/retrive-data.service';
+import {RefreshRateDTO} from '../../models/RefreshRate';
+import {SummaryDTO} from '../../models/Summary';
 
 @Component({
   selector: 'app-area',
@@ -9,117 +12,65 @@ import {ArchiveService} from '../../services/archive.service';
   styleUrls: ['./area.component.css']
 })
 export class AreaComponent implements OnInit {
-  public idArea: number;
-  public area;
+  public idArea;
   public userLogged: ProfileDTO = null;
+  private areaList;
+  public area;
 
+  refreshRate: RefreshRateDTO;
 
-  constructor(private activatedRoute: ActivatedRoute, public archive: ArchiveService) {
-    this.area = [
-      {
-        idArea: 1,
-        machines: [
-          {
-            id: 1,
-            code: 48595,
-            name: 'Prelavaggio',
-            sensors: [
-              {id: 1, name: 'Pompa d\'acqua'},
-              {id: 2, name: 'Contatore acqua'},
-              {id: 3, name: 'Temperatura'},
-              {id: 4, name: 'Livello'}
-            ]
-          },
-          {
-            id: 2,
-            code: 98165,
-            name: 'Lavaggio',
-            sensors: [
-              {id: 1, name: 'pompa'},
-              {id: 2, name: 'contatore'},
-              {id: 3, name: 'temperatura'},
-              {id: 4, name: 'livello'}
-            ]
-          },
-          {
-            id: 3,
-            code: 74589,
-            name: 'Asciugatura',
-            sensors: [
-              {id: 1, name: 'ventilatore'},
-              {id: 2, name: 'contatore'},
-              {id: 3, name: 'temperatura'},
-              {id: 4, name: 'livello'},
-            ]
-          }
-        ]
-      },
-      {
-        idArea: 2,
-        machines: [
-          {
-            id: 1,
-            code: 86625,
-            name: 'Vasca pre-trattamento',
-            sensors: [
-              {id: 1, name: 'livello'},
-              {id: 2, name: 'ph'},
-            ]
-          },
-          {
-            id: 2,
-            code: 96385,
-            name: 'Vasca primer',
-            sensors: [
-              {id: 1, name: 'livello'},
-              {id: 2, name: 'ph'},
-            ]
-          },
-          {
-            id: 3,
-            code: 12345,
-            name: 'Vasca finisher',
-            sensors: [
-              {id: 1, name: 'livello'},
-              {id: 2, name: 'ph'},
-            ]
-          },
-        ]
-      },
-      {
-        idArea: 3,
-        machines: [
-          {
-            id: 1,
-            code: 32651,
-            name: 'motore',
-            sensors: [
-              {id: 1, name: 'corrente assorbita'},
-              {id: 2, name: 'n di giri'},
-              {id: 3, name: 'ore di lavoro'}
-            ]
-          },
-          {
-            id: 2,
-            code: 12121,
-            name: 'motore',
-            sensors: [
-              {id: 1, name: 'corrente assorbita'},
-              {id: 2, name: 'n di giri'},
-              {id: 3, name: 'ore di lavoro'}
-            ]
-          }
-        ]
-      }
-    ];
+  summaryCardItems: SummaryDTO[] = [
+    {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
+    {title: 'Numero Giri', text: 'Description2', value: '4567', icon: '', style: 'danger'},
+    {title: 'Livello massimo acqua', text: 'Description3', value: '89', icon: '', style: 'success'},
+  ];
 
+  constructor(private activatedRoute: ActivatedRoute, public archive: ArchiveService, private factory: RetriveDataService) {
     this.userLogged = this.archive.getProfile();
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.idArea = params['id'];
-    });
+    this.idArea = this.activatedRoute.snapshot.paramMap.get('id');
+    this.factory.getArea(this.idArea)
+      .subscribe((response: IFactoryStructure) => {
+        if (response) {
+          for (let item in response.result) {
+            this.area.push({
+              /*
+              prodLineId: item.pLineId,
+              prodLineName: item.pLineName,
+              machines: [
+                {
+                  machineId: item.mId,
+                  machineName: item.mName,
+                  machineSector: item.mSector,
+                  sensors: [
+                    {
+                      sensorId: item.sId,
+                      sensorName: item.sName
+                    }
+                  ]
+                }
+              ]*/
+            });
+          }
+        }
+      });
   }
+}
+
+
+export interface IFactoryStructure {
+  result: IArea[];
+}
+
+export interface IArea {
+  pLineId: number,
+  pLineName: string,
+  mId: number,
+  mSector: string,
+  mName: string,
+  sId: number,
+  sType: string
 }
 

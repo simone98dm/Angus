@@ -30,14 +30,18 @@ import {AreaComponent} from './page/area/area.component';
 import {ProgressMaskComponent} from './page/shared/progress-mask/progress-mask.component';
 import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.component';
 import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
-import {DlDateTimePickerDateModule} from 'angular-bootstrap-datetimepicker';
+import {GaugeChartComponent} from './page/graph/gauge-chart/gauge-chart.component';
+import {RetriveDataService} from './services/retrive-data.service';
+import {AreaDetailsComponent} from './page/area-details/area-details.component';
+import {AreaFullComponent} from './page/area-full/area-full.component';
 
+// const api = {host: '10.10.10.1', port: '8081'};
+const api = {host: 'localhost', port: '8081'};
+export const authenticationApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/login';
+export const userApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/user';
+export const factoryStructApiUrl = 'http://' + api.host + ':' + api.port + '/api/factory';
+const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port + ''};
 
-// export const authenticationApiUrl = 'http://192.168.1.160:3000/api/user';
-export const authenticationApiUrl = 'http://localhost:8081/api/auth/login';
-export const userApiUrl = 'http://localhost:8081/api/auth/user';
-const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
 
 @NgModule({
   declarations: [
@@ -61,6 +65,9 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     ProgressMaskComponent,
     ModalLogoutComponent,
     PieChartComponent,
+    GaugeChartComponent,
+    AreaDetailsComponent,
+    AreaFullComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,16 +75,15 @@ const SocketIOConf: SocketIoConfig = {url: 'http://localhost:8081'};
     HttpClientModule,
     AppRoutingService,
     Ng2GoogleChartsModule,
-    FormsModule,
-    BsDropdownModule.forRoot(),
-    DlDateTimePickerDateModule
+    FormsModule
   ],
   providers: [
     ArchiveService,
     GuardComponent,
     AuthenticationService,
     ProfileService,
-    RetriveChartService
+    RetriveChartService,
+    RetriveDataService
   ],
   bootstrap: [AppComponent]
 })
