@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
@@ -6,7 +6,6 @@ import {IFactoryStructure} from '../shared/sidebar/sidebar.component';
 import {RetriveDataService} from '../../services/retrive-data.service';
 
 import {RetriveChartService} from '../../services/retrive-chart.service';
-import {RefreshRateDTO} from '../../models/RefreshRate';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +16,8 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('energy') energyChart;
   @ViewChild('water') waterChart;
-  @ViewChild('uptime') uptimeChart;  
+  @ViewChild('uptime') uptimeChart;
+  refreshRate: number;
 
   summaryCardItems: SummaryDTO[] = [
     {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
@@ -25,17 +25,12 @@ export class DashboardComponent implements OnInit {
     {title: 'Livello massimo acqua', text: 'Description3', value: '89', icon: '', style: 'success'},
   ];
 
-  @Output()
-  refreshGraphRate = new EventEmitter();
-
   refreshOptions = [
     {id: 0, name: 'Istantaneo'},
     {id: 1, name: '1 Min'},
     {id: 2, name: '1 Ora'},
     {id: 3, name: '1 Giorno'},
     {id: 4, name: '1 Sett'},
-    {id: 5, name: '1 Mese'},
-    {id: 6, name: '1 anno'}
   ];
 
   refreshRate: string;
@@ -47,7 +42,7 @@ export class DashboardComponent implements OnInit {
   energySummaryChart: any = {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Consumi Elettrici', 'Settimana',  'Attuale'],
+      ['Consumi Elettrici', 'Settimana', 'Attuale'],
       ['Energia', 0, 0]
     ],
     options: {
@@ -59,7 +54,7 @@ export class DashboardComponent implements OnInit {
   waterSummaryChart: any = {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Consumi Acqua', 'Settimana',  'Attuale'],
+      ['Consumi Acqua', 'Settimana', 'Attuale'],
       ['Acqua', 0, 0]
     ],
     options: {
@@ -71,7 +66,7 @@ export class DashboardComponent implements OnInit {
   uptimeSummaryChart: any = {
     chartType: 'ColumnChart',
     dataTable: [
-      ['Uptime', 'Settimana',  'Attuale'],
+      ['Uptime', 'Settimana', 'Attuale'],
       ['Attività', 0, 0]
     ],
     options: {
@@ -120,7 +115,7 @@ export class DashboardComponent implements OnInit {
     this.refreshRate = refresh;
   }
 
-  updateAreas(){
+  updateAreas() {
     this.factory.getAreas()
       .subscribe((response: IFactoryStructure) => {
         let areaList = [];
