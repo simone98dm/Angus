@@ -3,10 +3,8 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {SettingComponent} from './page/setting/setting.component';
-import {ListComponent} from './page/list/list/list.component';
 import {BarChartComponent} from './page/graph/bar-chart/bar-chart.component';
 import {NavbarComponent} from './page/shared/navbar/navbar.component';
-import {FooterComponent} from './page/shared/footer/footer.component';
 import {PageNotFoundComponent} from './page/shared/page-not-found/page-not-found.component';
 import {SidebarComponent} from './page/shared/sidebar/sidebar.component';
 import {LoginComponent} from './authentication/login/login.component';
@@ -19,7 +17,6 @@ import {FormsModule} from '@angular/forms';
 import {AppRoutingService} from './services/app-routing.service';
 import {SocketIoConfig, SocketIoModule} from 'ng-socket-io';
 import {SummaryCardComponent} from './page/summary-card/summary-card.component';
-import {CardComponent} from './page/card/card.component';
 import {ArchiveService} from './services/archive.service';
 import {AuthenticationService} from './authentication/authentication.service';
 import {ProfileService} from './authentication/profile.service';
@@ -48,10 +45,8 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
   declarations: [
     AppComponent,
     SettingComponent,
-    ListComponent,
     BarChartComponent,
     NavbarComponent,
-    FooterComponent,
     PageNotFoundComponent,
     SidebarComponent,
     LoginComponent,
@@ -59,7 +54,6 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     GuardComponent,
     DashboardComponent,
     SummaryCardComponent,
-    CardComponent,
     AboutComponent,
     HomeComponent,
     AreaComponent,
