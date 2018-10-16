@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
   @ViewChild('water') waterChart;
   @ViewChild('uptime') uptimeChart;
   refreshRate: RefreshRateDTO;
+  @Input()
+  item: SummaryDTO;
 
   summaryCardItems: SummaryDTO[] = [
     {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
@@ -26,21 +28,13 @@ export class DashboardComponent implements OnInit {
     {title: 'Livello massimo acqua', text: 'Description3', value: '89', icon: '', style: 'success'},
   ];
 
-  @Output()
-  refreshGraphRate = new EventEmitter();
-
   refreshOptions = [
     {id: 0, name: 'Istantaneo'},
     {id: 1, name: '1 Min'},
     {id: 2, name: '1 Ora'},
     {id: 3, name: '1 Giorno'},
     {id: 4, name: '1 Sett'},
-    {id: 5, name: '1 Mese'},
-    {id: 6, name: '1 anno'}
   ];
-
-  refreshRate: string;
-
 
   energySummaryChart: any = {
     chartType: 'ColumnChart',
@@ -130,5 +124,6 @@ export class DashboardComponent implements OnInit {
         this.archive.setAreas(areaList);
       });
   }
+
 
 }

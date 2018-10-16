@@ -1,13 +1,12 @@
 <div class="row" style="margin: 15px">
-  <div class="col-2" style="vertical-align: ">
-    <p>Tempo di ricarica:</p>
+  <div class="col-2">
+    <h5>Intervallo:</h5>
   </div>
   <div class="col-10">
     <select class="form-control" (change)="setRefreshRate($event.target)">
       <option *ngFor="let refresh of refreshOptions" [value]="refresh.id">{{refresh.name}}</option>
     </select>
   </div>
-
 </div>
 
 <!-- 0 = Root-->
@@ -255,9 +254,13 @@
     <div class="col-sm">
       <div class="card shadow cardcss">
         <h5 class="card-header">Prelavaggio</h5>
-        <div class="card shadow" *ngFor="let card of summaryCardItems">
-          <div class="card-body">
-            <p class="card-title">{{card.title}}</p>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Temperatura</p>
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
@@ -272,15 +275,62 @@
             </div>
           </div>
         </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Numero Giri</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Livello massimo acqua </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     <!--Lavaggio-->
     <div class="col-sm">
       <div class="card shadow cardcss">
         <h5 class="card-header">Lavaggio</h5>
-        <div class="card shadow" *ngFor="let card of summaryCardItems">
-          <div class="card-body">
-            <p class="card-title">{{card.title}}</p>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Temperatura</p>
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
@@ -295,15 +345,62 @@
             </div>
           </div>
         </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Numero Giri</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Livello massimo acqua </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     <!--Asciugatura-->
     <div class="col-sm">
       <div class="card shadow cardcss">
         <h5 class="card-header">Asciugatura</h5>
-        <div class="card shadow" *ngFor="let card of summaryCardItems">
-          <div class="card-body">
-            <p class="card-title">{{card.title}}</p>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Temperatura</p>
+              </div>
+            </div>
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
@@ -318,6 +415,28 @@
             </div>
           </div>
         </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Numero Giri</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -375,9 +494,9 @@
             <div class="col">
               <div class="card cardcss">
                 <h5 class="card-header">Motore 1</h5>
-                <div class="card" *ngFor="let card of summaryCardItems">
+                <div class="card">
                   <div class="card-body">
-                    <p class="card-title">{{card.title}}</p>
+                    <p class="card-title">Numero Giri</p>
                     <div class="row">
                       <div class="col">
                         <h4 class="card-text">
@@ -397,9 +516,9 @@
             <div class="col">
               <div class="card cardcss">
                 <h5 class="card-header">Motore 2</h5>
-                <div class="card" *ngFor="let card of summaryCardItems">
+                <div class="card">
                   <div class="card-body">
-                    <p class="card-title">{{card.title}}</p>
+                    <p class="card-title">Numero Giri</p>
                     <div class="row">
                       <div class="col">
                         <h4 class="card-text">
