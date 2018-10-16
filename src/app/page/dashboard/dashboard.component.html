@@ -1,0 +1,543 @@
+<div class="row" style="margin: 15px">
+  <div class="col-2">
+    <h5>Intervallo:</h5>
+  </div>
+  <div class="col-10">
+    <select class="form-control" (change)="setRefreshRate($event.target)">
+      <option *ngFor="let refresh of refreshOptions" [value]="refresh.id">{{refresh.name}}</option>
+    </select>
+  </div>
+</div>
+
+<!-- 0 = Root-->
+<div *ngIf="loggedUser.grade == 0 ">
+  <div class="row sup">
+    <div class="col">
+      <div class="card shadow cardcss ">
+        <google-chart [data]="energySummaryChart"></google-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow cardcss ">
+        <google-chart [data]="waterSummaryChart"></google-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow cardcss ">
+        <google-chart [data]="uptimeSummaryChart"></google-chart>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow cardcss ">
+        no data
+      </div>
+
+      <div class="card shadow cardcss ">
+        no data
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <!--Prelavaggio-->
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Prelavaggio</h5>
+        <div class="card shadow" *ngFor="let card of summaryCardItems">
+          <div class="card-body">
+            <p class="card-title">{{card.title}}</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Lavaggio-->
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Lavaggio</h5>
+        <div class="card shadow" *ngFor="let card of summaryCardItems">
+          <div class="card-body">
+            <p class="card-title">{{card.title}}</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Asciugatura-->
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Asciugatura</h5>
+        <div class="card shadow" *ngFor="let card of summaryCardItems">
+          <div class="card-body">
+            <p class="card-title">{{card.title}}</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Pretrattamento</h5>
+        <div class="card shadow">
+          <div class="card-body">
+            <p class="card-title">Vasca Pretrattamento</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <p class="card-title">Vasca Primer</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <p class="card-title">Vasca Finisher</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Stoccaggio</h5>
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="col">
+              <div class="card cardcss">F
+                <h5 class="card-header">Motore 1</h5>
+                <div class="card" *ngFor="let card of summaryCardItems">
+                  <div class="card-body">
+                    <p class="card-title">{{card.title}}</p>
+                    <div class="row">
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-success">Min 12</span>
+                        </h4>
+                      </div>
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-danger">Max 99</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card cardcss">
+                <h5 class="card-header">Motore 2</h5>
+                <div class="card" *ngFor="let card of summaryCardItems">
+                  <div class="card-body">
+                    <p class="card-title">{{card.title}}</p>
+                    <div class="row">
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-success">Min 12</span>
+                        </h4>
+                      </div>
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-danger">Max 99</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1 = Supervisore-->
+<div *ngIf="loggedUser.grade == 1 ">
+  <div class="row sup">
+    <div class="col">
+      <div class="card shadow cardcss ">
+        <google-chart [data]="energySummaryChart"></google-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow cardcss ">
+        <google-chart [data]="waterSummaryChart"></google-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow cardcss ">
+        <google-chart [data]="uptimeSummaryChart"></google-chart>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow cardcss ">
+        no data
+      </div>
+
+      <div class="card shadow cardcss ">
+        no data
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- 2 = Manutentore-->
+<div *ngIf="loggedUser.grade == 2">
+  <div class="row">
+    <!--Prelavaggio-->
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Prelavaggio</h5>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Temperatura</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Numero Giri</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Livello massimo acqua </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--Lavaggio-->
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Lavaggio</h5>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Temperatura</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Numero Giri</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Livello massimo acqua </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--Asciugatura-->
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Asciugatura</h5>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Temperatura</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md">
+                <p class="card-text">Numero Giri</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-success">Min 12</span>
+                </h4>
+              </div>
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Pretrattamento</h5>
+        <div class="card shadow">
+          <div class="card-body">
+            <p class="card-title">Vasca Pretrattamento</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <p class="card-title">Vasca Primer</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow">
+          <div class="card-body">
+            <p class="card-title">Vasca Finisher</p>
+            <div class="row">
+              <div class="col">
+                <h4 class="card-text">
+                  <span class="badge badge-danger">Max 99</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="card shadow cardcss">
+        <h5 class="card-header">Stoccaggio</h5>
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="col">
+              <div class="card cardcss">
+                <h5 class="card-header">Motore 1</h5>
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-title">Numero Giri</p>
+                    <div class="row">
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-success">Min 12</span>
+                        </h4>
+                      </div>
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-danger">Max 99</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card cardcss">
+                <h5 class="card-header">Motore 2</h5>
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-title">Numero Giri</p>
+                    <div class="row">
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-success">Min 12</span>
+                        </h4>
+                      </div>
+                      <div class="col">
+                        <h4 class="card-text">
+                          <span class="badge badge-danger">Max 99</span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

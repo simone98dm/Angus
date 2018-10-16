@@ -7,16 +7,16 @@ export class RetriveChartService {
   constructor(private socket: Socket) {
   }
 
-  reclaimManutentorHome() {
-    this.socket.emit('manutentor_home');
-  }
-
-  reclaimSupervisorHome() {
-    this.socket.emit('supervisor_home');
-  }
+  reclaimHomeData(auth_id) {
+    this.socket.emit('home_run', auth_id);
+  }  
 
   getSupervisorHome() {
     return this.socket.fromEvent('supervisor_data_home').map(data => data);
+  }
+
+  getManutentorHome() {
+    return this.socket.fromEvent('manutentor_data_home').map(data => data);
   }
   
   getInstantEnergyDrainBySensor() {
