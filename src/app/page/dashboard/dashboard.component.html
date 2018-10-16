@@ -1,3 +1,15 @@
+<div class="row" style="margin: 15px">
+  <div class="col-2" style="vertical-align: ">
+    <p>Tempo di ricarica:</p>
+  </div>
+  <div class="col-10">
+    <select class="form-control" (change)="setRefreshRate($event.target)">
+      <option *ngFor="let refresh of refreshOptions" [value]="refresh.id">{{refresh.name}}</option>
+    </select>
+  </div>
+
+</div>
+
 <!-- 0 = Root-->
 <div *ngIf="loggedUser.grade == 0 ">
   <div class="row sup">

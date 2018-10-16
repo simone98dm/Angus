@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {SummaryDTO} from '../../models/Summary';
 import {ArchiveService} from '../../services/archive.service';
 import {ProfileDTO} from '../../models/Profile';
@@ -25,6 +25,22 @@ export class DashboardComponent implements OnInit {
     {title: 'Numero Giri', text: 'Description2', value: '4567', icon: '', style: 'danger'},
     {title: 'Livello massimo acqua', text: 'Description3', value: '89', icon: '', style: 'success'},
   ];
+
+  @Output()
+  refreshGraphRate = new EventEmitter();
+
+  refreshOptions = [
+    {id: 0, name: 'Istantaneo'},
+    {id: 1, name: '1 Min'},
+    {id: 2, name: '1 Ora'},
+    {id: 3, name: '1 Giorno'},
+    {id: 4, name: '1 Sett'},
+    {id: 5, name: '1 Mese'},
+    {id: 6, name: '1 anno'}
+  ];
+
+  refreshRate: string;
+
 
   energySummaryChart: any = {
     chartType: 'ColumnChart',
@@ -96,7 +112,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  setRefreshrate(refresh: number) {
+  setRefreshRate(refresh: number) {
     this.refreshRate = refresh;
   }
 

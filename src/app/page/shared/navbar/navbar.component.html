@@ -5,14 +5,6 @@
   <ul class="navbar-nav mr-auto">
   </ul>
 
-  <div style="margin-right: 30px">
-    <select class="form-control" (change)="print($event.target)"
-            style="background-color: #384f64; color:white; display: block;">
-      <option *ngFor="let refresh of refreshOptions" [value]="refresh.id">{{refresh.name}}</option>
-    </select>
-  </div>
-
-
   <div class="navbuttons">
     <a routerLink="/dashboard" class="btn">
       <i class="material-icons" style="color: #FFFFFF">
