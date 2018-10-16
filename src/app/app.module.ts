@@ -32,8 +32,10 @@ import {ModalLogoutComponent} from './page/shared/modal-logout/modal-logout.comp
 import {PieChartComponent} from './page/graph/pie-chart/pie-chart.component';
 import {GaugeChartComponent} from './page/graph/gauge-chart/gauge-chart.component';
 import {RetriveDataService} from './services/retrive-data.service';
+import {AreaDetailsComponent} from './page/area-details/area-details.component';
 
-const api = {host: '10.10.10.1', port: '8081'};
+// const api = {host: '10.10.10.1', port: '8081'};
+const api = {host: 'localhost', port: '8081'};
 export const authenticationApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/login';
 export const userApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/user';
 export const factoryStructApiUrl = 'http://' + api.host + ':' + api.port + '/api/factory';
@@ -63,6 +65,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     ModalLogoutComponent,
     PieChartComponent,
     GaugeChartComponent,
+    AreaDetailsComponent,
   ],
   imports: [
     BrowserModule,
