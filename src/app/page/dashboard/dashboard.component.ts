@@ -31,9 +31,7 @@ export class DashboardComponent implements OnInit {
     {id: 2, name: '1 Ora'},
     {id: 3, name: '1 Giorno'},
     {id: 4, name: '1 Sett'},
-  ];
-
-  refreshRate: string;
+  ];  
 
   manutentor_data: any = {
     
