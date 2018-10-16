@@ -72,6 +72,7 @@ export class DashboardComponent implements OnInit {
       height: 623
     }
   };
+  public loggedUser: ProfileDTO = this.archive.getProfile();
 
   constructor(private archive: ArchiveService, private factory: RetriveDataService, private socket: RetriveChartService) {
   }
@@ -80,7 +81,7 @@ export class DashboardComponent implements OnInit {
     if (this.archive.getAreas() == null) {
       this.updateAreas();
     }
-    this.socket.reclaimHomeData(this.archive.getProfile().grade);
+    this.socket.reclaimHomeData(this.loggedUser.grade);
     this.socket.getSupervisorHome()
     .subscribe((data: any) => {
       console.log(data);
