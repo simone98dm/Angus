@@ -32,6 +32,7 @@ export class AreaComponent implements OnInit {
 
   ngOnInit() {
     this.idArea = this.activatedRoute.snapshot.paramMap.get('id');
+    /*
     this.factory.getArea(this.idArea)
       .subscribe((response: IFactoryStructure) => {
         if (response) {
@@ -52,11 +53,12 @@ export class AreaComponent implements OnInit {
                     }
                   ]
                 }
-              ]*/
+              ]
             });
           }
         }
       });
+    */
   }
 }
 
