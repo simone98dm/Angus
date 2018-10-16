@@ -29,35 +29,10 @@ export class AreaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.factory.getArea(this.paramId)
-      .subscribe((response: IFactoryStructure) => {
-        if (response) {
-          for (let item in response.result) {
-
-            /*
-          this.area.push({
-            prodLineId: item.pLineId,
-            prodLineName: item.pLineName,
-            machines: [
-              {
-                machineId: item.mId,
-                machineName: item.mName,
-                machineSector: item.mSector,
-                sensors: [
-                  {
-                    sensorId: item.sId,
-                    sensorName: item.sName
-                  }
-                ]
-              }
-            ]
-            });*/
-          }
-        }
-      });
   }
 }
 
+/*
 
 export interface IFactoryStructure {
   result: IArea[];
@@ -73,3 +48,5 @@ export interface IArea {
   sType: string
 }
 
+
+ */

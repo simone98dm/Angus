@@ -9,16 +9,20 @@ import {AreaServiceService} from '../../services/area-service.service';
   styleUrls: ['./area-details.component.css']
 })
 export class AreaDetailsComponent implements OnInit {
+  area: any;
+  machineId: number;
   paramId: number;
   private sub: any;
 
   constructor(private route: ActivatedRoute,
-              private factory: RetriveDataService, private area: AreaServiceService) {
+              private factory: RetriveDataService) {
 
   }
 
   ngOnInit() {
-    this.paramId = this.area.getParam();
+    this.paramId = +this.route.snapshot.paramMap.get('id');
+    this.area = JSON.parse(localStorage.getItem('area'));
+    console.log(this.area);
     /*
     this.factory.getArea(this.parentRouteId)
       .subscribe((response: IFactoryStructure) => {
