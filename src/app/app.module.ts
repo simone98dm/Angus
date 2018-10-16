@@ -34,6 +34,7 @@ import {GaugeChartComponent} from './page/graph/gauge-chart/gauge-chart.componen
 import {RetriveDataService} from './services/retrive-data.service';
 import {AreaDetailsComponent} from './page/area-details/area-details.component';
 import {AreaFullComponent} from './page/area-full/area-full.component';
+import {BaseComponent} from './page/base/base.component';
 
 // const api = {host: '10.10.10.1', port: '8081'};
 const api = {host: 'localhost', port: '8081'};
@@ -68,6 +69,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     GaugeChartComponent,
     AreaDetailsComponent,
     AreaFullComponent,
+    BaseComponent,
   ],
   imports: [
     BrowserModule,

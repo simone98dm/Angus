@@ -1,0 +1,16 @@
+<app-navbar (refreshGraphRate)="setRefreshrate($event)"></app-navbar>
+<!-- 0 = Root-->
+<!-- 1 = Supervisore-->
+<!-- 2 = Manutentore-->
+<!-- 3 = User-->
+<div class="wrapper">
+  <nav id="sidebar">
+    <app-sidebar></app-sidebar>
+  </nav>
+  <div id="content">
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
