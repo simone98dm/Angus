@@ -25,7 +25,7 @@
     </a>
     <ul class="collapse show list-unstyled" id="pageSubmenu">
       <li *ngFor="let item of areaList">
-        <a routerLink="/area/{{item.id}}"><i class="material-icons">
+        <a routerLink="./area/{{item.id}}"><i class="material-icons">
           keyboard_arrow_right
         </i>{{item.name}}</a>
       </li>
@@ -34,7 +34,7 @@
 
   <!-- enter in settings -->
   <li [routerLinkActive]="['active']">
-    <a routerLink="/setting"><i class="material-icons">
+    <a routerLink="./setting"><i class="material-icons">
       settings
     </i> Impostazioni
     </a>
@@ -44,7 +44,7 @@
 
 <ul class="list-unstyled CTAs">
   <li>
-    <a routerLink="/about" class="btn btn-outline-info">About</a>
+    <a routerLink="./about" class="btn btn-outline-info">About</a>
     <br>
     <a data-toggle="modal" data-target="#logoutmodal" class="btn btn-outline-danger"><i class="material-icons">
         settings_power

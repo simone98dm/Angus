@@ -1,57 +1,45 @@
-<app-navbar></app-navbar>
-<div class="wrapper">
-  <nav id="sidebar">
-    <app-sidebar></app-sidebar>
-  </nav>
-  <div id="content">
-    <div class="container" style="margin-top: 100px">
+<!--<app-progress-mask [showProgress]="loading"></app-progress-mask>-->
 
-      <!--<app-progress-mask [showProgress]="loading"></app-progress-mask>-->
+<div class="disabled" style="pointer-events: none; opacity: 0.4;">
+  <form #myForm="ngForm" (ngSubmit)="saveForm(myForm)">
+    <img class="form-control" [src]="loggedUser.profileImg"
+         style="margin: auto; border-radius: 50%; height: 250px; width: 250px;">
+    <div class="form-group">
+      <label for="emailInput">Email: </label>
+      <input class="form-control" id="emailInput" readonly placeholder="{{loggedUser.email}}">
+    </div>
 
-      <div class="disabled" style="pointer-events: none; opacity: 0.4;">
-        <form #myForm="ngForm" (ngSubmit)="saveForm(myForm)">
-          <img class="form-control" [src]="loggedUser.profileImg"
-               style="margin: auto; border-radius: 50%; height: 250px; width: 250px;">
-          <div class="form-group">
-            <label for="emailInput">Email: </label>
-            <input class="form-control" id="emailInput" readonly placeholder="{{loggedUser.email}}">
-          </div>
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <label for="nameInput">Name: </label>
-                <input class="form-control" id="nameInput" readonly placeholder="{{loggedUser.name}}">
-              </div>
-              <div class="col-md-6">
-                <label for="surnameInput">Surname: </label>
-                <input class="form-control" id="surnameInput" readonly placeholder="{{loggedUser.surname  }}">
-              </div>
-            </div>
-          </div>
-          <hr>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <button class="btn btn-success btn-sm btn-block"><i class="material-icons"
-                                                                    style="vertical-align: middle">save</i>
-                  Save
-                  all
-                  settings
-                </button>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-danger btn-sm btn-block"><i class="material-icons"
-                                                                   style="vertical-align: middle">backspace</i>
-                  Reset
-                  to default
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="nameInput">Name: </label>
+          <input class="form-control" id="nameInput" readonly placeholder="{{loggedUser.name}}">
+        </div>
+        <div class="col-md-6">
+          <label for="surnameInput">Surname: </label>
+          <input class="form-control" id="surnameInput" readonly placeholder="{{loggedUser.surname  }}">
+        </div>
       </div>
     </div>
-  </div>
+    <hr>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-success btn-sm btn-block"><i class="material-icons"
+                                                              style="vertical-align: middle">save</i>
+            Save
+            all
+            settings
+          </button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-danger btn-sm btn-block"><i class="material-icons"
+                                                             style="vertical-align: middle">backspace</i>
+            Reset
+            to default
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
-
