@@ -5,6 +5,7 @@ import {ArchiveService} from '../../services/archive.service';
 import {RetriveDataService} from '../../services/retrive-data.service';
 import {RefreshRateDTO} from '../../models/RefreshRate';
 import {SummaryDTO} from '../../models/Summary';
+import {AreaDTO} from '../../models/Area';
 
 @Component({
   selector: 'app-area',
@@ -14,8 +15,8 @@ import {SummaryDTO} from '../../models/Summary';
 export class AreaComponent implements OnInit {
   public idArea;
   public userLogged: ProfileDTO = null;
-  private areaList;
-  public area;
+  private areaList: AreaDTO;
+  public area: AreaDTO;
 
   refreshRate: RefreshRateDTO;
 
@@ -31,6 +32,7 @@ export class AreaComponent implements OnInit {
 
   ngOnInit() {
     this.idArea = this.activatedRoute.snapshot.paramMap.get('id');
+    /*
     this.factory.getArea(this.idArea)
       .subscribe((response: IFactoryStructure) => {
         if (response) {
@@ -51,11 +53,12 @@ export class AreaComponent implements OnInit {
                     }
                   ]
                 }
-              ]*/
+              ]
             });
           }
         }
       });
+    */
   }
 }
 
