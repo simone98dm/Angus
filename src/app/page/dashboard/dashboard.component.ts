@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('energy') energyChart;
   @ViewChild('water') waterChart;
   @ViewChild('uptime') uptimeChart;
-  refreshRate: string;
+  refreshRate: number;
 
   summaryCardItems: SummaryDTO[] = [
     {title: 'Temperatura', text: 'Description1', value: '1234', icon: '', style: 'primary'},
