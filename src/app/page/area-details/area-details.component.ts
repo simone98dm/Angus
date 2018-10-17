@@ -21,7 +21,6 @@ export class AreaDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.paramId = +this.route.snapshot.paramMap.get('id');
     /*
     this.factory.getArea(this.parentRouteId)
       .subscribe((response: IFactoryStructure) => {

@@ -128,7 +128,6 @@ export class AreaFullComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.paramId = params['id'];
     });
-    console.log(this.paramId);
 
     /*
     this.factory.getArea(this.paramId)
@@ -173,13 +172,6 @@ export class AreaFullComponent implements OnInit {
       height: 623
     }
   };
-
-  parseAreaResponse(item) {
-    console.log('parse');
-    console.log(item);
-
-
-  }
 }
 
 

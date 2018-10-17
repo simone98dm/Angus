@@ -123,7 +123,6 @@ export class DashboardComponent implements OnInit {
             name: item.pLineName
           });
         }
-
         this.archive.setAreas(areaList);
       });
   }
