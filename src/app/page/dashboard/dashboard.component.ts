@@ -104,6 +104,7 @@ export class DashboardComponent implements OnInit {
       });
     this.socket.getManutentorHome()
       .subscribe((data: IManutentorData) => {
+        console.log(data);
         this.manutentor_data = data;
       });
   }
