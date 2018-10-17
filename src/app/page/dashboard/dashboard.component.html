@@ -1,3 +1,4 @@
+<!--
 <div class="row" style="margin: 15px">
   <div class="col-2">
     <h5>Intervallo:</h5>
@@ -8,7 +9,7 @@
     </select>
   </div>
 </div>
-
+-->
 <!-- 0 = Root-->
 <div *ngIf="loggedUser.grade == 0 ">
   <div class="row sup">
@@ -219,17 +220,17 @@
   <div class="row sup">
     <div class="col">
       <div class="card shadow cardcss ">
-        <google-chart [data]="energySummaryChart"></google-chart>
+        <google-chart #energy [data]="energySummaryChart"></google-chart>
       </div>
     </div>
     <div class="col">
       <div class="card shadow cardcss ">
-        <google-chart [data]="waterSummaryChart"></google-chart>
+        <google-chart #water [data]="waterSummaryChart"></google-chart>
       </div>
     </div>
     <div class="col">
       <div class="card shadow cardcss ">
-        <google-chart [data]="uptimeSummaryChart"></google-chart>
+        <google-chart #uptime [data]="uptimeSummaryChart"></google-chart>
       </div>
     </div>
 
@@ -414,7 +415,7 @@
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
-                  <span class="badge badge-danger">Max 99</span>
+                  <span class="badge badge-danger">Max {{manutentor_data.pretreatment.pretreatment.max}}</span>
                 </h4>
               </div>
             </div>
@@ -426,7 +427,7 @@
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
-                  <span class="badge badge-danger">Max 99</span>
+                  <span class="badge badge-danger">Max {{manutentor_data.pretreatment.primer.max}}</span>
                 </h4>
               </div>
             </div>
@@ -438,7 +439,7 @@
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
-                  <span class="badge badge-danger">Max 99</span>
+                  <span class="badge badge-danger">Max {{manutentor_data.pretreatment.finisher.max}}</span>
                 </h4>
               </div>
             </div>
