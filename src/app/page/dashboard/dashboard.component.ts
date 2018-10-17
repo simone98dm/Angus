@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     {id: 4, name: '1 Sett'},
   ];
 
-  manutentor_data: any = {};
+  manutentor_data: IManutentorData;
 
   energySummaryChart: any = {
     chartType: 'ColumnChart',
@@ -103,9 +103,9 @@ export class DashboardComponent implements OnInit {
 
       });
     this.socket.getManutentorHome()
-      .subscribe((data: any) => {
-
-      });
+    .subscribe((data: IManutentorData) => {
+      this.manutentor_data = data;
+    });
   }
 
   setRefreshRate(refresh: number) {
@@ -125,6 +125,43 @@ export class DashboardComponent implements OnInit {
 
         this.archive.setAreas(areaList);
       });
-  }
+  } 
+}
 
+interface IManutentorData {
+  pretreatment: IPreTreatment;
+  prewashing: IPreWashing;
+  washing: IWashing;
+  drying: IDrying;
+  storage: IStorage;
+}
+interface IPreTreatment {
+  finisher: IWaterLevel;
+  primer: IWaterLevel;
+  pretreatment: IWaterLevel;
+}
+interface IPreWashing {
+  temp: number;
+  revolutionxminute: number;
+  water_level: IWaterLevel;
+}
+interface IWashing {
+  temp: number;
+  revolutionxminute: number;
+  water_level: IWaterLevel;
+}
+interface IDrying {
+  temp: number;
+  revolutionxminute: number;
+}
+interface IStorage {
+  engine_one: IEngine;
+  engine_two: IEngine;
+}
+interface IEngine {
+  revolutionxminute: number;
+}
+interface IWaterLevel {
+  min: number;
+  max: number;
 }
