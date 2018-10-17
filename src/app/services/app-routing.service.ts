@@ -21,18 +21,18 @@ const routes: Routes = [
   {
     path: 'dashboard', canActivate: [GuardComponent], component: BaseComponent, children: [ // base da dove fare il routing
       // main route, it will bring the user directly to the home
-      {path: '', canActivate: [GuardComponent], component: DashboardComponent},
+      {path: '', component: DashboardComponent},
       // Option Route
-      {path: 'setting', canActivate: [GuardComponent], component: SettingComponent},
+      {path: 'setting', component: SettingComponent},
       // about route
-      {path: 'about', canActivate: [GuardComponent], component: AboutComponent},
+      {path: 'about', component: AboutComponent},
       // area route
       {
-        path: 'area/:id', canActivate: [GuardComponent], component: AreaComponent, children: [
+        path: 'area/:id', component: AreaComponent, children: [
           // default
-          {path: '', canActivate: [GuardComponent], component: AreaFullComponent},
+          {path: '', component: AreaFullComponent},
           // details for area
-          {path: 'details/:id', canActivate: [GuardComponent], component: AreaDetailsComponent}
+          {path: 'details/:id', component: AreaDetailsComponent}
         ]
       },
     ]

@@ -15,6 +15,7 @@ export class GuardComponent implements CanActivate {
   }
 
   canActivate() {
+    console.log('guard request');
     if (this.auth.isAuthenticated()) {
       return true;
     }
