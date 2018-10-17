@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ArchiveService} from '../../services/archive.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {RetriveDataService} from '../../services/retrive-data.service';
 import {ProfileDTO} from '../../models/Profile';
 import {RefreshRateDTO} from '../../models/RefreshRate';
@@ -27,7 +27,8 @@ export class AreaFullComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private archive: ArchiveService,
-              private factory: RetriveDataService) {
+              private factory: RetriveDataService,
+              private router: Router) {
   }
 
   private productLines: any[] = [];
@@ -37,9 +38,12 @@ export class AreaFullComponent implements OnInit {
 
   ngOnInit() {
     // get the id of the page
-    this.paramId = +this.route.snapshot.paramMap.get('id');
+    this.route.params.subscribe(params => {
+      this.paramId = params['id'];
+    });
     console.log(this.paramId);
 
+    /*
     this.factory.getArea(this.paramId)
       .subscribe((data: IAreaResponse) => {
           console.log(data);
@@ -68,6 +72,7 @@ export class AreaFullComponent implements OnInit {
         }
         }
       );
+      */
   }
 
   trendSummaryChart: any = {

@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     {id: 4, name: '1 Sett'},
   ];
 
-  manutentor_data: IManutentorData;
+  manutentor_data: IManutentorData = null;
 
   energySummaryChart: any = {
     chartType: 'ColumnChart',
@@ -88,13 +88,13 @@ export class DashboardComponent implements OnInit {
         this.energySummaryChart.dataTable.push(['Consumi Elettrici', 'Settimana', 'Attuale']);
         this.energySummaryChart.dataTable.push(['Energia', data.energy_Average, data.energy_Instant]);
         this.energyChart.redraw();
-        //-------------------------
+        // -------------------------
         this.waterSummaryChart = Object.create(this.waterSummaryChart);
         this.waterSummaryChart.dataTable.length = 0;
         this.waterSummaryChart.dataTable.push(['Consumi Acqua', 'Settimana', 'Attuale']);
         this.waterSummaryChart.dataTable.push(['Acqua', data.water_Average, data.water_Instant]);
         this.waterChart.redraw();
-        //-------------------------
+        // -------------------------
         this.uptimeSummaryChart = Object.create(this.uptimeSummaryChart);
         this.uptimeSummaryChart.dataTable.length = 0;
         this.uptimeSummaryChart.dataTable.push(['Uptime', 'Settimana', 'Attuale']);
@@ -103,9 +103,9 @@ export class DashboardComponent implements OnInit {
 
       });
     this.socket.getManutentorHome()
-    .subscribe((data: IManutentorData) => {
-      this.manutentor_data = data;
-    });
+      .subscribe((data: IManutentorData) => {
+        this.manutentor_data = data;
+      });
   }
 
   setRefreshRate(refresh: number) {
@@ -125,7 +125,7 @@ export class DashboardComponent implements OnInit {
 
         this.archive.setAreas(areaList);
       });
-  } 
+  }
 }
 
 interface IManutentorData {
@@ -135,32 +135,39 @@ interface IManutentorData {
   drying: IDrying;
   storage: IStorage;
 }
+
 interface IPreTreatment {
   finisher: IWaterLevel;
   primer: IWaterLevel;
   pretreatment: IWaterLevel;
 }
+
 interface IPreWashing {
   temp: number;
   revolutionxminute: number;
   water_level: IWaterLevel;
 }
+
 interface IWashing {
   temp: number;
   revolutionxminute: number;
   water_level: IWaterLevel;
 }
+
 interface IDrying {
   temp: number;
   revolutionxminute: number;
 }
+
 interface IStorage {
   engine_one: IEngine;
   engine_two: IEngine;
 }
+
 interface IEngine {
   revolutionxminute: number;
 }
+
 interface IWaterLevel {
   min: number;
   max: number;

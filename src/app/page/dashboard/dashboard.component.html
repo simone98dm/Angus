@@ -264,7 +264,7 @@
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
-                  <span class="badge badge-success">Istantanea: {{manutentor_data.prewashing.temp}}</span>
+                  <span class="badge badge-success">Istantanea: {{manutentor_data.prewashing.temp || null}}</span>
                 </h4>
               </div>              
             </div>
@@ -280,7 +280,8 @@
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
-                  <span class="badge badge-success">Istantanea: {{manutentor_data.prewashing.revolutionxminute}}</span>
+                  <span
+                    class="badge badge-success">Istantanea: {{manutentor_data.prewashing.revolutionxminute || null}}</span>
                 </h4>
               </div>              
             </div>
@@ -296,7 +297,8 @@
             <div class="row">
               <div class="col">
                 <h4 class="card-text">
-                  <span class="badge badge-success">Istantanea: {{manutentor_data.prewashing.water_level.max}} </span>
+                  <span
+                    class="badge badge-success">Istantanea: {{manutentor_data.prewashing.water_level.max || null}} </span>
                 </h4>
               </div>              
             </div>

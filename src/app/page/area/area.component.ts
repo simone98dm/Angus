@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-area',
@@ -6,27 +7,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./area.component.css']
 })
 export class AreaComponent implements OnInit {
+  private paramId: number;
 
-  constructor() {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
+
   }
 }
-
-/*
-
-export interface IFactoryStructure {
-  result: IArea[];
-}
-
-export interface IArea {
-  pLineId: number,
-  pLineName: string,
-  mId: number,
-  mSector: string,
-  mName: string,
-  sId: number,
-  sType: string
-}
-*/

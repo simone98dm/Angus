@@ -33,7 +33,7 @@ import {AreaDetailsComponent} from './page/area-details/area-details.component';
 import {AreaFullComponent} from './page/area-full/area-full.component';
 import {BaseComponent} from './page/base/base.component';
 
-const api = {host: '192.168.1.98', port: '8081'};
+const api = {host: '192.168.101.62', port: '8081'};
 // const api = {host: 'localhost', port: '8081'};
 export const authenticationApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/login';
 export const userApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/user';
