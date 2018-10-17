@@ -110,6 +110,6 @@ or
 
 (unregistered team member)
 
-[Andrea Babuin](https://github.com/anbabuin): Influx, DB manager
-
 [Alessandro Bravo](https://github.com/AlessandroBravo): Influx, DB admin
+
+[Andrea Babuin](https://github.com/anbabuin): Influx, DB manager
