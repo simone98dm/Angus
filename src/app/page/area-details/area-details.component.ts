@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RetriveDataService} from '../../services/retrive-data.service';
+import {AreaRoleService} from '../../services/area-role.service';
 
 @Component({
   selector: 'app-area-details',
@@ -14,14 +15,13 @@ export class AreaDetailsComponent implements OnInit {
   private sub: any;
 
   constructor(private route: ActivatedRoute,
-              private factory: RetriveDataService) {
+              private factory: RetriveDataService,
+              private areaRole: AreaRoleService) {
 
   }
 
   ngOnInit() {
     this.paramId = +this.route.snapshot.paramMap.get('id');
-    this.area = JSON.parse(localStorage.getItem('area'));
-    console.log(this.area);
     /*
     this.factory.getArea(this.parentRouteId)
       .subscribe((response: IFactoryStructure) => {
@@ -37,4 +37,15 @@ export class AreaDetailsComponent implements OnInit {
       );
     */
   }
+}
+
+
+export interface IAreaResponse {
+  machineId: number;
+  machineName: string;
+  machineSector: string;
+  pLineId: number;
+  pLineName: string;
+  sensorId: number;
+  sensorType: string;
 }

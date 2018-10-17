@@ -32,7 +32,7 @@ const routes: Routes = [
           // default
           {path: '', canActivate: [GuardComponent], component: AreaFullComponent},
           // details for area
-          {path: 'details', canActivate: [GuardComponent], component: AreaDetailsComponent}
+          {path: 'details/:id', canActivate: [GuardComponent], component: AreaDetailsComponent}
         ]
       },
     ]

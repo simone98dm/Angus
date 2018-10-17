@@ -1,14 +1,15 @@
 import {Injectable} from '@angular/core';
+import {MachineDTO} from '../models/Area';
 
 @Injectable()
 export class AreaRoleService {
 
   private _id: number;
-  private _machine: number;
+  private _name: string;
+  private _machine: MachineDTO[];
 
   constructor() {
   }
-
 
   get id(): number {
     return this._id;
@@ -18,11 +19,8 @@ export class AreaRoleService {
     this._id = value;
   }
 
-  get machine(): number {
-    return this._machine;
-  }
-
-  set machine(value: number) {
-    this._machine = value;
+  addMachine(item) {
+    this._machine.push(item);
   }
 }
+
