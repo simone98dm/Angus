@@ -15,6 +15,8 @@ export class RetriveDataService {
     }).map((response) => {
       return response;
     });
+
+
   }
 
   getArea(n: number) {

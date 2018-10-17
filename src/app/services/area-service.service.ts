@@ -3,16 +3,25 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class AreaServiceService {
   private _id: number;
+  private _machine: number;
 
   constructor() {
   }
 
-  getParam() {
+
+  get id(): number {
     return this._id;
   }
 
-  setParam(id: number) {
-    this._id = id;
+  set id(value: number) {
+    this._id = value;
   }
 
+  get machine(): number {
+    return this._machine;
+  }
+
+  set machine(value: number) {
+    this._machine = value;
+  }
 }

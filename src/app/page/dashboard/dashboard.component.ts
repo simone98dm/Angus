@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
     {id: 2, name: '1 Ora'},
     {id: 3, name: '1 Giorno'},
     {id: 4, name: '1 Sett'},
-  ];  
+  ];
 
   manutentor_data: IManutentorData;
 
@@ -81,27 +81,27 @@ export class DashboardComponent implements OnInit {
     }
     this.socket.reclaimHomeData(this.loggedUser.grade);
     this.socket.getSupervisorHome()
-    .subscribe((data: any) => {
-      console.log(data);
-      this.energySummaryChart = Object.create(this.energySummaryChart);
-      this.energySummaryChart.dataTable.length = 0;
-      this.energySummaryChart.dataTable.push(['Consumi Elettrici', 'Settimana',  'Attuale']);
-      this.energySummaryChart.dataTable.push(['Energia', data.energy_Average, data.energy_Instant]);
-      this.energyChart.redraw();
-      //-------------------------
-      this.waterSummaryChart = Object.create(this.waterSummaryChart);
-      this.waterSummaryChart.dataTable.length = 0;
-      this.waterSummaryChart.dataTable.push(['Consumi Acqua', 'Settimana',  'Attuale']);
-      this.waterSummaryChart.dataTable.push(['Acqua', data.water_Average, data.water_Instant]);
-      this.waterChart.redraw();
-      //-------------------------
-      this.uptimeSummaryChart = Object.create(this.uptimeSummaryChart);
-      this.uptimeSummaryChart.dataTable.length = 0;
-      this.uptimeSummaryChart.dataTable.push(['Uptime', 'Settimana',  'Attuale']);
-      this.uptimeSummaryChart.dataTable.push(['Attività', data.uptime_Average, data.uptime_Instant]);
-      this.uptimeChart.redraw();
+      .subscribe((data: any) => {
+        console.log(data);
+        this.energySummaryChart = Object.create(this.energySummaryChart);
+        this.energySummaryChart.dataTable.length = 0;
+        this.energySummaryChart.dataTable.push(['Consumi Elettrici', 'Settimana', 'Attuale']);
+        this.energySummaryChart.dataTable.push(['Energia', data.energy_Average, data.energy_Instant]);
+        this.energyChart.redraw();
+        //-------------------------
+        this.waterSummaryChart = Object.create(this.waterSummaryChart);
+        this.waterSummaryChart.dataTable.length = 0;
+        this.waterSummaryChart.dataTable.push(['Consumi Acqua', 'Settimana', 'Attuale']);
+        this.waterSummaryChart.dataTable.push(['Acqua', data.water_Average, data.water_Instant]);
+        this.waterChart.redraw();
+        //-------------------------
+        this.uptimeSummaryChart = Object.create(this.uptimeSummaryChart);
+        this.uptimeSummaryChart.dataTable.length = 0;
+        this.uptimeSummaryChart.dataTable.push(['Uptime', 'Settimana', 'Attuale']);
+        this.uptimeSummaryChart.dataTable.push(['Attività', data.uptime_Average, data.uptime_Instant]);
+        this.uptimeChart.redraw();
 
-    });
+      });
     this.socket.getManutentorHome()
     .subscribe((data: IManutentorData) => {
       this.manutentor_data = data;
