@@ -33,7 +33,7 @@ import {AreaDetailsComponent} from './page/area-details/area-details.component';
 import {AreaFullComponent} from './page/area-full/area-full.component';
 import {BaseComponent} from './page/base/base.component';
 
-const api = {host: '192.168.43.165', port: '8081'};
+const api = {host: 'localhost', port: '8081'};
 // const api = {host: 'localhost', port: '8081'};
 export const authenticationApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/login';
 export const userApiUrl = 'http://' + api.host + ':' + api.port + '/api/auth/user';
@@ -63,7 +63,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     GaugeChartComponent,
     AreaDetailsComponent,
     AreaFullComponent,
-    BaseComponent
+    BaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +71,7 @@ const SocketIOConf: SocketIoConfig = {url: 'http://' + api.host + ':' + api.port
     HttpClientModule,
     AppRoutingService,
     Ng2GoogleChartsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     ArchiveService,
