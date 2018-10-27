@@ -236,11 +236,11 @@
 
     <div class="col">
       <div class="card shadow cardcss ">
-        no data
+        <google-chart #energy_grouped [data]="energy_Grouped"></google-chart>
       </div>
 
       <div class="card shadow cardcss ">
-        no data
+        <google-chart #water_grouped [data]="water_Grouped"></google-chart>
       </div>
 
     </div>
@@ -267,7 +267,7 @@
                 <h4 class="card-text">
                   <span class="badge badge-success">Istantanea: {{manutentor_data.prewashing.temp || null}}</span>
                 </h4>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
@@ -284,7 +284,7 @@
                   <span
                     class="badge badge-success">Istantanea: {{manutentor_data.prewashing.revolutionxminute || null}}</span>
                 </h4>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
@@ -301,7 +301,7 @@
                   <span
                     class="badge badge-success">Istantanea: {{manutentor_data.prewashing.water_level.max || null}} </span>
                 </h4>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
@@ -324,7 +324,7 @@
                 <h4 class="card-text">
                   <span class="badge badge-success">Istantanea: {{manutentor_data.washing.temp}} </span>
                 </h4>
-              </div>            
+              </div>
             </div>
           </div>
         </div>
@@ -340,7 +340,7 @@
                 <h4 class="card-text">
                   <span class="badge badge-success">Istantanea: {{manutentor_data.washing.revolutionxminute}} </span>
                 </h4>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
