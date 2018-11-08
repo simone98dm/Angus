@@ -3,7 +3,7 @@
 
 This project aim to create a simple real time dashboard. 
 
-![photo_2018-11-08_10-27-10](https://user-images.githubusercontent.com/34772137/48189774-39637980-e341-11e8-89b1-cb46875f2989.jpg)
+![image](https://user-images.githubusercontent.com/34772137/48190207-649a9880-e342-11e8-898a-ae963d09dbe6.png)
 
 ![image](https://user-images.githubusercontent.com/34772137/48190116-20a79380-e342-11e8-8444-c72b00b60ded.png)
 
